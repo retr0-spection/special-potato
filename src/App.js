@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import React from 'react';
 import * as ReactDOM from "react-dom/client";
+import LoginPage from './pages/login';
 
 function App() {
 
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <div>Login Page</div>,
+    element:<LoginPage />,
   },
 ]);
 
