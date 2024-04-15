@@ -1,31 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 import React from 'react';
-import * as ReactDOM from "react-dom/client";
+import './App.css';
+import Navigator from './Access/Navigator';
+import Homepage from './pages/Homepage';
+import Features from './pages/Features';
+import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 
 function App() {
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element:<div />
-  },
-  {
-    path: "/login",
-    element: <div>Login Page</div>,
-  },
-]);
-
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
+  return (
+    <div className="container">
+      <Router>
+    <Navigator/>
+    <Homepage/>
+    <Features/>
+      <footer>
+        <p>&copy; 2024 e-SPAZA</p>
+      </footer>
+      
+      </Router>
+    </div>
+  );
 }
 
 export default App;
