@@ -1,19 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 import React from 'react';
 import * as ReactDOM from "react-dom/client";
 import LoginPage from './pages/login';
+import Homepage from './pages/Homepage';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 function App() {
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<div />
+    element:<Homepage />
   },
   {
     path: "/login",

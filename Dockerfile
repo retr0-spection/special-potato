@@ -1,20 +1,19 @@
-# Fetching the minified node image on apline linux
-FROM node:slim
+# Use an official Node runtime as the base image
+FROM node:14-alpine
 
-# Declaring env
-ENV NODE_ENV production
+# Set the working directory in the container
+WORKDIR /app
 
-# Setting up the work directory
-WORKDIR /web
+# Copy package.json and package-lock.json files into the container
+COPY package*.json ./
 
-# Copying all the files in our project
-COPY . .
-
-# Installing dependencies
+# Install dependencies
 RUN npm install
 
-# Starting our application
-CMD [ "npm", "run", "start" ]
+# Copy the remaining application code into the container
+COPY . .
 
 # Exposing server port
+
 EXPOSE 3000 80
+

@@ -1,0 +1,38 @@
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.Homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../images/Fit.JPG');
+    width: 100%;
+    background-size:contain;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2); 
+    
+}
+.Homepage-content {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+.Homepage-content > h1 {
+    color: aliceblue;
+    font-size: 100px;
+}
+
+.Homepage-content > p {
+    color: aliceblue;
+    font-size: 32px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+footer {
+    margin-top: 50px; /* Adjust as needed */
+    text-align: center;
+    color: aliceblue;
+}
+
