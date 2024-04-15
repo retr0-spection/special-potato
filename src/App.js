@@ -1,24 +1,28 @@
 import React from 'react';
-import './App.css';
-import Navigator from './Access/Navigator';
+import * as ReactDOM from "react-dom/client";
+import LoginPage from './pages/login';
 import Homepage from './pages/Homepage';
-import Features from './pages/Features';
-import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 function App() {
-  return (
-    <div className="container">
-      <Router>
-    <Navigator/>
-    <Homepage/>
-    <Features/>
-      <footer>
-        <p>&copy; 2024 e-SPAZA</p>
-      </footer>
-      
-      </Router>
-    </div>
-  );
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element:<Homepage />
+  },
+  {
+    path: "/login",
+    element:<LoginPage />,
+  },
+]);
+
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
 }
 
 export default App;

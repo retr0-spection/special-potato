@@ -13,8 +13,5 @@ RUN npm install
 # Copy the remaining application code into the container
 COPY . .
 
-# Expose port 3000 to the outside world
+# Exposing server port
 EXPOSE 3000
-
-# Start the React development server
-CMD ["npm", "start"]
