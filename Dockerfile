@@ -14,6 +14,4 @@ RUN npm install
 COPY . .
 
 # Exposing server port
-
-EXPOSE 3000 80
-
+EXPOSE 3000
