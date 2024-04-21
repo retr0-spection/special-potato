@@ -48,7 +48,8 @@ jobs:
       services:
         # Define a service container using the Docker image and expose the necessary port
         myservice:
-          run:  echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+          environment:
+            REPO: "${GITHUB_REPOSITORY,,}"
           image: ghcr.io/${{ env.REPO }}:${{ github.sha }}
           ports:
             - 3000:80  # Map container port 3000 to host port 80
