@@ -44,12 +44,14 @@ jobs:
       contents: read
       packages: write
 
-    services:
-      # Define a service container using the Docker image and expose the necessary port
-      myservice:
-        image: ghcr.io/${{ env.REPO }}:${{ github.sha }}
-        ports:
-          - 3000:80  # Map container port 3000 to host port 80
+
+      services:
+        # Define a service container using the Docker image and expose the necessary port
+        myservice:
+          run:  echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+          image: ghcr.io/${{ env.REPO }}:${{ github.sha }}
+          ports:
+            - 3000:80  # Map container port 3000 to host port 80
 
     steps:
       - uses: actions/checkout@v3
