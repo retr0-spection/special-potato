@@ -16,4 +16,4 @@ COPY . .
 # Exposing server port
 ENV PORT=80
 EXPOSE 80
-RUN ["npm", "run", "start"]
+CMD ["npm", "run", "start"]
