@@ -1,11 +1,35 @@
 import React from "react";
 import GoogleIcon from "../icons/google.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useStore from "../zustand/store";
+import { decodeToken } from "react-jwt";
+import axios from "axios";
+import { GoogleLogin } from "@react-oauth/google";
 
 const SignupPage = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [remember, setRemember] = React.useState(false);
+  const navigate = useNavigate();
+  const { setProfile } = useStore();
+
+  const googleAuthRoute = async (payload) => {
+    const token = decodeToken(payload.credential);
+
+    const profile = token
+
+    // setTimeout(() => {
+    //   setProfile(profile);
+    //   navigate("/");
+    // }, 5000);
+
+    const res = await axios.post("https://espazaserver.azurewebsites.net/auth/authenticate", {token:payload.credential})
+
+    if (res.data){
+      setProfile(res.data)
+      navigate("/");
+    }
+  };
 
   return (
     <div
@@ -17,9 +41,7 @@ const SignupPage = () => {
     >
       <section style={{ width: "60%" }}>
         {/* form */}
-        <Link>
           <h1 class="logo-text">espaza</h1>
-        </Link>
         <section
           style={{
             display: "flex",
@@ -37,102 +59,39 @@ const SignupPage = () => {
               <p class="meta-text">Let's get you started! Please enter you details</p>
             </section>
 
-            <form>
-              <label for="email">Email</label>
-              <br />
-              <input
-                className="input-field"
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-              />
-              <br />
-              <label for="password">Password</label>
-              <br />
-              <input
-                className="input-field"
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-              />
-              <label for="confirm_password">Confirm password</label>
-              <br />
-              <input
-                className="input-field"
-                id="confirm_password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Confirm password"
-              />
-              <br />
-              <section
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  marginBottom: "10px",
-                }}
-              >
-                <section
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
-                    paddingTop: "5px",
-                    paddingBottom: "10px",
-                  }}
-                >
-                  <input
-                    id="checkbox"
-                    type="checkbox"
-                    value={remember}
-                    onChange={(e) => setRemember(e.target.value)}
-                    placeholder="Enter your password"
-                  />
-                  <label for="checkbox" style={{ fontSize: 12 }}>
-                    Remember for 30 days
-                  </label>
-                </section>
-                {/* <a href="#" className="link">
-                  Forgot password
-                </a> */}
-              </section>
-            </form>
-            <button
-              className="button"
-              style={{ width: "100%", backgroundColor: "#7A52D6" }}
-            >
-              Sign up
-            </button>
+         
+          
 
             <section style={{ marginTop: "10px" }}>
-              <button
-                style={{
-                  display: "flex",
-                  width: "100%",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 0,
-                  paddingLeft: 10,
-                  paddingRight: 10,
-                  background: "white",
-                  borderRadius: "5px",
-                  borderWidth: "1px",
+            <GoogleLogin
+                onSuccess={googleAuthRoute}
+                onError={() => {
+                  console.log("Login Failed");
                 }}
               >
-                <img
-                  src={require("../icons/google.png")}
-                  alt="google-logo"
-                  width={"20"}
-                  height={"20"}
-                />
-                <p style={{ paddingLeft: "10px" }}>Sign up with Google</p>
-              </button>
+                <button
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: 0,
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    background: "white",
+                    borderRadius: "5px",
+                    borderWidth: "1px",
+                  }}
+                >
+                  <img
+                    src={require("../icons/google.png")}
+                    alt="google-logo"
+                    width={"20"}
+                    height={"20"}
+                  />
+                  <p style={{ paddingLeft: "10px" }}>Sign up with Google</p>
+                </button>
+              </GoogleLogin>
             </section>
 
             <section>

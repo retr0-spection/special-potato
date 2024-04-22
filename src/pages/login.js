@@ -37,17 +37,17 @@ const LoginPage = () => {
 
     const profile = token
 
-    setTimeout(() => {
-      setProfile(profile);
-      navigate("/");
-    }, 5000);
-
-    // const res = await axios.post("https://espazaserver.azurewebsites.net/auth/authenticate", {token})
-
-    // if (res.data){
-    //   setProfile(res.data)
+    // setTimeout(() => {
+    //   setProfile(profile);
     //   navigate("/");
-    // }
+    // }, 5000);
+
+    const res = await axios.post("https://espazaserver.azurewebsites.net/auth/authenticate", {token:payload.credential})
+
+    if (res.data){
+      setProfile(res.data)
+      navigate("/");
+    }
   };
 
   return (
