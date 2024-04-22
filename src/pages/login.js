@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Rings } from "react-loader-spinner";
 import axios from "axios";
 import { GoogleLogin } from "@react-oauth/google";
+import { decodeToken, useJwt } from "react-jwt";
 
 const LoginPage = () => {
   const [email, setEmail] = React.useState("");
@@ -32,11 +33,22 @@ const LoginPage = () => {
   // };
 
   const googleAuthRoute = async (payload) => {
-    const token = payload.credential
+    const token = decodeToken(payload.credential);
 
-    const res = await axios.post("https://espazaserver.azurewebsites.net/auth/authenticate")
-    setProfile(res.data)
-  }
+    const profile = token
+
+    setTimeout(() => {
+      setProfile(profile);
+      navigate("/");
+    }, 5000);
+
+    // const res = await axios.post("https://espazaserver.azurewebsites.net/auth/authenticate", {token})
+
+    // if (res.data){
+    //   setProfile(res.data)
+    //   navigate("/");
+    // }
+  };
 
   return (
     <div
@@ -150,35 +162,35 @@ const LoginPage = () => {
             </button> */}
 
             <section style={{ marginTop: "10px" }}>
-                <GoogleLogin
-                   onSuccess={googleAuthRoute}
-                  onError={() => {
-                    console.log('Login Failed');
+              <GoogleLogin
+                onSuccess={googleAuthRoute}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+              >
+                <button
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: 0,
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    background: "white",
+                    borderRadius: "5px",
+                    borderWidth: "1px",
                   }}
                 >
-                  <button
-                    style={{
-                      display: "flex",
-                      width: "100%",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      padding: 0,
-                      paddingLeft: 10,
-                      paddingRight: 10,
-                      background: "white",
-                      borderRadius: "5px",
-                      borderWidth: "1px",
-                    }}
-                  >
-                    <img
-                      src={require("../icons/google.png")}
-                      alt="google-logo"
-                      width={"20"}
-                      height={"20"}
-                    />
-                    <p style={{ paddingLeft: "10px" }}>Log in with Google</p>
-                  </button>
-                </GoogleLogin>
+                  <img
+                    src={require("../icons/google.png")}
+                    alt="google-logo"
+                    width={"20"}
+                    height={"20"}
+                  />
+                  <p style={{ paddingLeft: "10px" }}>Log in with Google</p>
+                </button>
+              </GoogleLogin>
             </section>
 
             <section>
