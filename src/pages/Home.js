@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Locations from "../pages/Location";
 import Products from "./Products";
 import '../App.css';
+import useStore from "../zustand/store";
 
 
 function Home() {

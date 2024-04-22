@@ -2,22 +2,27 @@ import React from "react";
 import GoogleIcon from "../icons/google.png";
 import useStore from "../zustand/store";
 import { useNavigate } from "react-router-dom";
+import { Rings } from "react-loader-spinner";
 
 const LoginPage = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [remember, setRemember] = React.useState(false);
+  const [submitting, setSubmitting] = React.useState(false);
   const navigate = useNavigate();
   const { setProfile } = useStore();
 
   const submit = () => {
+    setSubmitting(true)
     const payload = {
       email,
     };
 
-    setProfile(password);
-
-    navigate("/");
+    setTimeout(() => {
+          setProfile(password);
+          navigate("/");
+          setSubmitting(false)
+    }, 3000)
   };
 
   return (
@@ -108,10 +113,17 @@ const LoginPage = () => {
             </form>
             <button
               className="button"
-              style={{ width: "100%", backgroundColor: "#7A52D6" }}
+              style={{ width: "100%", backgroundColor: "#7A52D6", display:'flex', alignItems:'center', justifyContent:'center' }}
               onClick={submit}
+              disabled={submitting}
             >
-              Login
+              {submitting ? <Rings
+              visible={true}
+              height="30"
+              width="30"
+              color="white"
+              ariaLabel="rings-loading"
+            /> : "Login"}
             </button>
 
             <section style={{ marginTop: "10px" }}>
