@@ -46,10 +46,10 @@
     justify-content: flex-end;
   }
   
-  a {
+  .right a {
     color: white;
     text-decoration: none;
-    /* margin: 20px; */ 
+     margin: 20px;  
   }
   
   .right button {

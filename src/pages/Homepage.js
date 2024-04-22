@@ -2,8 +2,6 @@ import React from "react";
 import '../Styles/Homepage.css';
 import Navigator from '../Access/Navigator';
 import Features from '../pages/Features';
-import Footer from "./Footer";
-import Locations from "../pages/Location";
 
 
 function Homepage() {

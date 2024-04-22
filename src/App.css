@@ -21,6 +21,11 @@ button {
   border-radius: 5px;
 }
 
+.actionImage {
+  height: 300px;
+  object-fit: cover;
+}
+
 
 .input-field {
   width: -webkit-fill-available;

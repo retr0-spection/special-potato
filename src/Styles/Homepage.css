@@ -8,9 +8,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('../images/Fit.JPG');
+    background-image: url('../images/e-spaza.jpg');
     width: 100%;
-    background-size:contain;
+    background-size:cover;
+    height: 100vh;
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2); 
     
 }
@@ -20,14 +21,16 @@ body {
 }
 
 .Homepage-content > h1 {
-    color: rgb(78, 128, 171);
+    color: rgb(153, 56, 0);
     font-size: 100px;
+    padding-top: 150px;
 }
 
 .Homepage-content > p {
     color: aliceblue;
     font-size: 32px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-top: 1px;
 }
 
 footer {

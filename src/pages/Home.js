@@ -4,6 +4,7 @@ import Navigator from '../Access/Navigator';
 import Features from '../pages/Features';
 import Footer from "./Footer";
 import Locations from "../pages/Location";
+import Products from "./Products";
 import '../App.css';
 
 
@@ -13,7 +14,8 @@ function Home() {
             <div >
              <Navigator/>
              <Homepage/>
-             <Features/>
+             {/* <Features/> */}
+             <Products/>
              <Locations/>
              <Footer/>
             </div>
