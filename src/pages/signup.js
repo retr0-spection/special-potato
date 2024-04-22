@@ -5,30 +5,40 @@ import useStore from "../zustand/store";
 import { decodeToken } from "react-jwt";
 import axios from "axios";
 import { GoogleLogin } from "@react-oauth/google";
+import { Rings } from "react-loader-spinner";
+
 
 const SignupPage = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [remember, setRemember] = React.useState(false);
+  const [submitting, setSubmitting] = React.useState(false);
+
   const navigate = useNavigate();
   const { setProfile } = useStore();
 
   const googleAuthRoute = async (payload) => {
-    const token = decodeToken(payload.credential);
+    setSubmitting(true)
+    setTimeout(async () => {
+      const token = decodeToken(payload.credential);
+  
+      const profile = token
+  
+      // setTimeout(() => {
+      //   setProfile(profile);
+      //   navigate("/");
+      // }, 5000);
+  
+      const res = await axios.post("https://espazaserver.azurewebsites.net/auth/authenticate", {token:payload.credential})
+      setSubmitting(false)
+  
+      if (res.data){
+        setProfile(res.data)
+        navigate("/");
+      }
 
-    const profile = token
+    }, 3000)
 
-    // setTimeout(() => {
-    //   setProfile(profile);
-    //   navigate("/");
-    // }, 5000);
-
-    const res = await axios.post("https://espazaserver.azurewebsites.net/auth/authenticate", {token:payload.credential})
-
-    if (res.data){
-      setProfile(res.data)
-      navigate("/");
-    }
   };
 
   return (
@@ -63,7 +73,30 @@ const SignupPage = () => {
           
 
             <section style={{ marginTop: "10px" }}>
-            <GoogleLogin
+            {submitting ? (
+               <button
+               style={{
+                 display: "flex",
+                 width: "100%",
+                 justifyContent: "center",
+                 alignItems: "center",
+                 padding: 0,
+                 paddingLeft: 10,
+                 paddingRight: 10,
+                 background: "white",
+                 borderRadius: "5px",
+                 borderWidth: 0,
+               }}
+             >
+               <Rings
+                  visible={true}
+                  height="30"
+                  width="30"
+                  color="gray"
+                  ariaLabel="rings-loading"
+                /> 
+                </button>
+               ): <GoogleLogin
                 onSuccess={googleAuthRoute}
                 onError={() => {
                   console.log("Login Failed");
@@ -90,8 +123,8 @@ const SignupPage = () => {
                     height={"20"}
                   />
                   <p style={{ paddingLeft: "10px" }}>Sign up with Google</p>
-                </button>
-              </GoogleLogin>
+                </button> 
+              </GoogleLogin>}
             </section>
 
             <section>

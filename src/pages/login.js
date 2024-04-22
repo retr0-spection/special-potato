@@ -33,21 +33,26 @@ const LoginPage = () => {
   // };
 
   const googleAuthRoute = async (payload) => {
-    const token = decodeToken(payload.credential);
+    setSubmitting(true)
+    setTimeout(async () => {
+      const token = decodeToken(payload.credential);
+  
+      const profile = token
+  
+      // setTimeout(() => {
+      //   setProfile(profile);
+      //   navigate("/");
+      // }, 5000);
+  
+      const res = await axios.post("https://espazaserver.azurewebsites.net/auth/authenticate", {token:payload.credential})
+      setSubmitting(false)
+  
+      if (res.data){
+        setProfile(res.data)
+        navigate("/");
+      }
 
-    const profile = token
-
-    // setTimeout(() => {
-    //   setProfile(profile);
-    //   navigate("/");
-    // }, 5000);
-
-    const res = await axios.post("https://espazaserver.azurewebsites.net/auth/authenticate", {token:payload.credential})
-
-    if (res.data){
-      setProfile(res.data)
-      navigate("/");
-    }
+    }, 3000)
   };
 
   return (
@@ -162,13 +167,36 @@ const LoginPage = () => {
             </button> */}
 
             <section style={{ marginTop: "10px" }}>
-              <GoogleLogin
+            {submitting ? (
+               <button
+               style={{
+                 display: "flex",
+                 width: "100%",
+                 justifyContent: "center",
+                 alignItems: "center",
+                 padding: 0,
+                 paddingLeft: 10,
+                 paddingRight: 10,
+                 background: "white",
+                 borderRadius: "5px",
+                 borderWidth: 0,
+
+               }}
+             >
+               <Rings
+                  visible={true}
+                  height="30"
+                  width="30"
+                  color="gray"
+                  ariaLabel="rings-loading"
+                /> 
+                </button>):   <GoogleLogin
                 onSuccess={googleAuthRoute}
                 onError={() => {
                   console.log("Login Failed");
                 }}
               >
-                <button
+           <button
                   style={{
                     display: "flex",
                     width: "100%",
@@ -190,7 +218,7 @@ const LoginPage = () => {
                   />
                   <p style={{ paddingLeft: "10px" }}>Log in with Google</p>
                 </button>
-              </GoogleLogin>
+              </GoogleLogin>}
             </section>
 
             <section>
