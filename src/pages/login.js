@@ -1,10 +1,24 @@
 import React from "react";
 import GoogleIcon from "../icons/google.png";
+import useStore from "../zustand/store";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [remember, setRemember] = React.useState(false);
+  const navigate = useNavigate();
+  const { setProfile } = useStore();
+
+  const submit = () => {
+    const payload = {
+      email,
+    };
+
+    setProfile(password);
+
+    navigate("/");
+  };
 
   return (
     <div
@@ -44,6 +58,7 @@ const LoginPage = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
+                required
               />
               <br />
               <label for="password">Password</label>
@@ -55,6 +70,7 @@ const LoginPage = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
+                required
               />
               <br />
               <section
@@ -93,6 +109,7 @@ const LoginPage = () => {
             <button
               className="button"
               style={{ width: "100%", backgroundColor: "#7A52D6" }}
+              onClick={submit}
             >
               Login
             </button>
@@ -123,7 +140,16 @@ const LoginPage = () => {
             </section>
 
             <section>
-              <p >Don't have an account?<a className="link" style={{fontSize:16, paddingLeft:10}} href="/signup">Sign up</a></p>
+              <p>
+                Don't have an account?
+                <a
+                  className="link"
+                  style={{ fontSize: 16, paddingLeft: 10 }}
+                  href="/signup"
+                >
+                  Sign up
+                </a>
+              </p>
             </section>
           </section>
         </section>
@@ -151,7 +177,7 @@ const LoginPage = () => {
             left: 0,
             right: 0,
             backgroundColor: "black",
-            opacity:0.5
+            opacity: 0.5,
           }}
         />
         <p

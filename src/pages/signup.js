@@ -1,5 +1,6 @@
 import React from "react";
 import GoogleIcon from "../icons/google.png";
+import { Link } from "react-router-dom";
 
 const SignupPage = () => {
   const [email, setEmail] = React.useState("");
@@ -16,7 +17,9 @@ const SignupPage = () => {
     >
       <section style={{ width: "60%" }}>
         {/* form */}
-        <h1 class="logo-text">Espaza</h1>
+        <Link>
+          <h1 class="logo-text">Espaza</h1>
+        </Link>
         <section
           style={{
             display: "flex",
@@ -30,8 +33,8 @@ const SignupPage = () => {
             {/* welcome text */}
 
             <section>
-              <p class="hero-text">Welcome Back</p>
-              <p class="meta-text">Welcome Back! Please enter you details</p>
+              <p class="hero-text">Hi there</p>
+              <p class="meta-text">Let's get you started! Please enter you details</p>
             </section>
 
             <form>
@@ -54,7 +57,17 @@ const SignupPage = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
+                placeholder="Password"
+              />
+              <label for="confirm_password">Confirm password</label>
+              <br />
+              <input
+                className="input-field"
+                id="confirm_password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Confirm password"
               />
               <br />
               <section
@@ -85,16 +98,16 @@ const SignupPage = () => {
                     Remember for 30 days
                   </label>
                 </section>
-                <a href="#" className="link">
+                {/* <a href="#" className="link">
                   Forgot password
-                </a>
+                </a> */}
               </section>
             </form>
             <button
               className="button"
               style={{ width: "100%", backgroundColor: "#7A52D6" }}
             >
-              Login
+              Sign up
             </button>
 
             <section style={{ marginTop: "10px" }}>
@@ -118,12 +131,12 @@ const SignupPage = () => {
                   width={"20"}
                   height={"20"}
                 />
-                <p style={{ paddingLeft: "10px" }}>Log in with Google</p>
+                <p style={{ paddingLeft: "10px" }}>Sign up with Google</p>
               </button>
             </section>
 
             <section>
-              <p >Don't have an account?<a className="link" style={{fontSize:16, paddingLeft:10}} href="/signup">Sign up</a></p>
+              <p>Already have an account?<a className="link" style={{fontSize:16, paddingLeft:10}} href="/login">Log in</a></p>
             </section>
           </section>
         </section>
