@@ -12,12 +12,30 @@ body {
   padding: 20px 20px 20px 20px;
 }
 
+.link {
+  color:#7A52D6;
+  text-decoration: none;
+  font-size: small;
+}
+
+.hero-text {
+  font-size: xx-large;
+  font-weight: bold;
+  margin: 0;
+}
+
+.meta-text {
+  color: gray;
+}
+
 .welcome-text {
   font-size: large;
 }
 
 .logo-text {
-  font-size:xxx-large
+  font-size:xx-large;
+  text-align: start;
+  padding-left: 30px;
 }
 
 #root {
