@@ -1,7 +1,7 @@
 import React from 'react';
 import * as ReactDOM from "react-dom/client";
 import LoginPage from './pages/login';
-import Homepage from './pages/Homepage';
+import Home from './pages/Home';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<Homepage />
+    element:<Home />
   },
   {
     path: "/login",

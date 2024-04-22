@@ -12,19 +12,24 @@ function Features() {
                         <FeatureItem src ="food1.jpg"
                         text="Finest veggies around"
                         label='Veggies'
-                        path = '/Meal'/>
+                        path = '/login'/>
                         <FeatureItem src ="food2.jpg"
                         text="Veggies from all over"
                         label='Veggies'
-                        path = '/Meal'/>
+                        path = '/login'/>
                         <FeatureItem src ="food3.jpg"
                         text="Burgers to die for"
                         label='Burgurs & Chips'
-                        path = '/Meal'/>
+                        path = '/login'/>
                         <FeatureItem src ="food4.jpg"
                         text="Finest pasta"
                         label='Pasta'
-                        path = '/Meal'/>
+                        path = '/login'/>
+                         <FeatureItem src ="bread.jpg"
+                        text="The softest bread"
+                        label='Bread'
+                        path = '/login'/>
+                        
                     </ul>
                 </div>
             </div>

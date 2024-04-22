@@ -1,0 +1,19 @@
+.locations {
+    margin: 80px auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f0f0f0; /* Example background color */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.location img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.location {
+    flex-basis: 31%;
+}

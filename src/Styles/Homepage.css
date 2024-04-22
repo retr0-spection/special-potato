@@ -16,11 +16,11 @@ body {
 }
 .Homepage-content {
     text-align: center;
-    margin-top: 50px; /* Adjust as needed */
+    margin-top: 50px; 
 }
 
 .Homepage-content > h1 {
-    color: aliceblue;
+    color: rgb(78, 128, 171);
     font-size: 100px;
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 footer {
-    margin-top: 50px; /* Adjust as needed */
+    margin-top: 50px; 
     text-align: center;
     color: aliceblue;
 }

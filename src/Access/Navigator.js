@@ -20,7 +20,8 @@ function Navigator() {
           <Link to="/">Home</Link>
           <Link to="/menu">Menu</Link>
           <Link to="/about">About</Link>
-          <Link to="/contact">Contacts</Link>
+          <Link to="/contact">Contacts</Link>    
+          <Link to="/login" className="button">Login</Link>
         </div>
         <div className="menu-icon" onClick={toggleMenu}>
           {menuVisible ? <>&times;</> : <>&#9776;</>}
