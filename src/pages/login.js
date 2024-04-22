@@ -3,8 +3,8 @@ import GoogleIcon from "../icons/google.png";
 import useStore from "../zustand/store";
 import { useNavigate } from "react-router-dom";
 import { Rings } from "react-loader-spinner";
-import axios from 'axios'
-
+import axios from "axios";
+import { GoogleLogin } from "@react-oauth/google";
 
 const LoginPage = () => {
   const [email, setEmail] = React.useState("");
@@ -14,23 +14,29 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { setProfile } = useStore();
 
-  const submit = async () => {
-    // setSubmitting(true)
-    // const payload = {
-    //   email,
-    // };
+  // const submit = async () => {
+  //   // setSubmitting(true)
+  //   // const payload = {
+  //   //   email,
+  //   // };
 
-    const res = await axios.get('https://espazaserver.azurewebsites.net/')
+  //   const res = await axios.get("https://espazaserver.azurewebsites.net/");
 
-    console.log(res)
+  //   console.log(res);
 
+  //   // setTimeout(() => {
+  //   //       setProfile(password);
+  //   //       navigate("/");
+  //   //       setSubmitting(false)
+  //   // }, 3000)
+  // };
 
-    // setTimeout(() => {
-    //       setProfile(password);
-    //       navigate("/");
-    //       setSubmitting(false)
-    // }, 3000)
-  };
+  const googleAuthRoute = async (payload) => {
+    const token = payload.credential
+
+    const res = await axios.post("https://espazaserver.azurewebsites.net/auth/authenticate")
+    setProfile(res.data)
+  }
 
   return (
     <div
@@ -42,7 +48,7 @@ const LoginPage = () => {
     >
       <section style={{ width: "60%" }}>
         {/* form */}
-        <h1 class="logo-text">Espaza</h1>
+        <h1 class="logo-text">espaza</h1>
         <section
           style={{
             display: "flex",
@@ -60,7 +66,7 @@ const LoginPage = () => {
               <p class="meta-text">Welcome Back! Please enter you details</p>
             </section>
 
-            <form>
+            {/* <form>
               <label for="email">Email</label>
               <br />
               <input
@@ -117,46 +123,62 @@ const LoginPage = () => {
                   Forgot password
                 </a>
               </section>
-            </form>
-            <button
+            </form> */}
+            {/* <button
               className="button"
-              style={{ width: "100%", backgroundColor: "#7A52D6", display:'flex', alignItems:'center', justifyContent:'center' }}
-              onClick={submit}
+              style={{
+                width: "100%",
+                backgroundColor: "#7A52D6",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              // onClick={submit}
               disabled={submitting}
             >
-              {submitting ? <Rings
-              visible={true}
-              height="30"
-              width="30"
-              color="white"
-              ariaLabel="rings-loading"
-            /> : "Login"}
-            </button>
+              {submitting ? (
+                <Rings
+                  visible={true}
+                  height="30"
+                  width="30"
+                  color="white"
+                  ariaLabel="rings-loading"
+                />
+              ) : (
+                "Login"
+              )}
+            </button> */}
 
             <section style={{ marginTop: "10px" }}>
-              <button
-                style={{
-                  display: "flex",
-                  width: "100%",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 0,
-                  paddingLeft: 10,
-                  paddingRight: 10,
-                  background: "white",
-                  borderRadius: "5px",
-                  borderWidth: "1px",
-                }}
-                onClick={submit}
-              >
-                <img
-                  src={require("../icons/google.png")}
-                  alt="google-logo"
-                  width={"20"}
-                  height={"20"}
-                />
-                <p style={{ paddingLeft: "10px" }}>Log in with Google</p>
-              </button>
+                <GoogleLogin
+                   onSuccess={googleAuthRoute}
+                  onError={() => {
+                    console.log('Login Failed');
+                  }}
+                >
+                  <button
+                    style={{
+                      display: "flex",
+                      width: "100%",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      padding: 0,
+                      paddingLeft: 10,
+                      paddingRight: 10,
+                      background: "white",
+                      borderRadius: "5px",
+                      borderWidth: "1px",
+                    }}
+                  >
+                    <img
+                      src={require("../icons/google.png")}
+                      alt="google-logo"
+                      width={"20"}
+                      height={"20"}
+                    />
+                    <p style={{ paddingLeft: "10px" }}>Log in with Google</p>
+                  </button>
+                </GoogleLogin>
             </section>
 
             <section>

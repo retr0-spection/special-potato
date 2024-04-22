@@ -18,7 +18,7 @@ const SignupPage = () => {
       <section style={{ width: "60%" }}>
         {/* form */}
         <Link>
-          <h1 class="logo-text">Espaza</h1>
+          <h1 class="logo-text">espaza</h1>
         </Link>
         <section
           style={{

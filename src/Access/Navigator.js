@@ -20,7 +20,7 @@ function Navigator() {
   return (
     <div className="Navigator">
       <div className="left">
-        <h1 class="logo-text" style={{color:'white'}}>Espaza</h1>
+        <h1 class="logo-text" style={{color:'white'}}>espaza</h1>
       </div>
       <div className="right">
         <div className={`menu ${menuVisible ? "menu-visible" : "menu-hidden"}`}>
