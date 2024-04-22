@@ -27,7 +27,7 @@ function Navigator() {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contacts</Link>
-         {profile ? <Link to="/login">Login</Link> :  <Link onClick={logout} to="/">Log out</Link>}
+         {!profile ? <Link to="/login">Login</Link> :  <Link onClick={logout} to="/">Log out</Link>}
         </div>
         {/* <div className="menu-icon" onClick={toggleMenu}>
           {menuVisible ? <>&times;</> : <>&#9776;</>}
