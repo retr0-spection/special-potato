@@ -3,6 +3,8 @@ import GoogleIcon from "../icons/google.png";
 import useStore from "../zustand/store";
 import { useNavigate } from "react-router-dom";
 import { Rings } from "react-loader-spinner";
+import axios from 'axios'
+
 
 const LoginPage = () => {
   const [email, setEmail] = React.useState("");
@@ -12,17 +14,22 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { setProfile } = useStore();
 
-  const submit = () => {
-    setSubmitting(true)
-    const payload = {
-      email,
-    };
+  const submit = async () => {
+    // setSubmitting(true)
+    // const payload = {
+    //   email,
+    // };
 
-    setTimeout(() => {
-          setProfile(password);
-          navigate("/");
-          setSubmitting(false)
-    }, 3000)
+    const res = await axios.get('https://espazaserver.azurewebsites.net/')
+
+    console.log(res)
+
+
+    // setTimeout(() => {
+    //       setProfile(password);
+    //       navigate("/");
+    //       setSubmitting(false)
+    // }, 3000)
   };
 
   return (
@@ -140,6 +147,7 @@ const LoginPage = () => {
                   borderRadius: "5px",
                   borderWidth: "1px",
                 }}
+                onClick={submit}
               >
                 <img
                   src={require("../icons/google.png")}

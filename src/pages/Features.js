@@ -1,10 +1,13 @@
 import React from "react";
 import FeatureItem from "./FeatureItem";
 import '../Styles/Features.css'
+import Navigator from "../Access/Navigator";
+
 
 function Features() {
     return(
         <div className="features">
+            
             <h1>Get the most delicious  meals</h1>
             <div className="Contain">
                 <div className="wrap">
