@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../Styles/Navigator.css";
 import useStore from "../zustand/store";
 import { Avatar, Button, Dialog, Popover, Typography } from "@mui/material";
-import SearchBar from "../pages/SearchBar"; 
+import SearchBar from "../pages/SearchBar";
 import icon1 from "../icons/cart_icon.png";
 import Uni from "../images/Unisex.jpg";
 import Everything from "../pages/Everything";
@@ -18,7 +18,7 @@ function Navigator2() {
 
   const handleClick = () => setOpen(true);
 
-  const cartSize = useStore((state) => state.cart.length);
+  const cartSize = useStore((state) => state.cart?.length);
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
@@ -31,7 +31,7 @@ function Navigator2() {
   return (
     <div className="Navigator">
       <div className="left">
-        <img onClick={window.scroll(0,0)} src={Uni} alt="B" />
+        <img onClick={window.scroll(0, 0)} src={Uni} alt="B" />
         <h1 className="logo-text" style={{ color: "white" }}>
           espaza
         </h1>
@@ -41,7 +41,7 @@ function Navigator2() {
           style={{ display: "flex", alignItems: "center" }}
           className={`menu ${menuVisible ? "menu-visible" : "menu-hidden"}`}
         >
-          <SearchBar /> 
+          <SearchBar />
           <Link to="/">Home</Link>
           {!profile ? (
             <Link to="/login">Login</Link>
@@ -56,13 +56,13 @@ function Navigator2() {
             </Link>
           ) : null}
           <div className="Arr">
-          <Link to="/cart">
-            <div className="cart-count">{cartSize}</div>
-            <img src={icon1} alt="Bjj" />
-          </Link>
+            <Link to="/cart">
+              <div className="cart-count">{cartSize}</div>
+              <img src={icon1} alt="Bjj" />
+            </Link>
           </div>
         </div>
-        
+
         <Popover
           id={"profile"}
           open={open}
