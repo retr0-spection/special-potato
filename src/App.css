@@ -1,106 +1,105 @@
 .App {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  height: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: auto;
 }
 
+.selectedSize {
+    background-color: black !important;
+    height: 100%;
+    width: 100%;
+    color: white;
+}
 
 .zoom-effect {
-  transition: transform 0.6s ease;
+    transition: transform 0.6s ease;
 }
 
 .zoom-effect:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
-.Allign{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 90vh; 
+.Allign {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90vh;
 }
 
-.Sizes h1{
-  margin-top: 55px;
-  color: #647582;
-  font-size: 20px;
-  font-weight: 600;
+.Sizes h1 {
+    margin-top: 55px;
+    color: #647582;
+    font-size: 20px;
+    font-weight: 600;
 }
 
-.Sizes{
-  display: flex;
-  margin: 30px;
-  gap: 20px;
+.Sizes {
+    display: flex;
+    margin: 30px;
+    gap: 20px;
 }
 
-.Sizes div{
-  padding: 18px 24px;
-  background: white;
-  border: 1px solid rgb(228, 220, 220);
-  border-radius: 3px;
-  cursor: pointer;
+.Sizes div {
+    padding: 18px 24px;
+    background: white;
+    border: 1px solid rgb(228, 220, 220);
+    border-radius: 3px;
+    cursor: pointer;
 }
 
-.AddCart{
-  padding: 20px 40px;
-  width: 300px;
-  font-size: 16px;
-  color: #dedede;
-  margin-bottom: 40px;
-  cursor: pointer;
+.AddCart {
+    padding: 20px 40px;
+    width: 300px;
+    font-size: 16px;
+    color: #dedede;
+    margin-bottom: 40px;
+    cursor: pointer;
 }
 
 button {
-  padding: 10px 15px 10px 15px;
-  cursor: pointer;
+    padding: 10px 15px 10px 15px;
+    cursor: pointer;
 }
 
 .button {
-  background-color: #7A52D6;
-  color: white;
-  border: none;
-  border-radius: 5px;
+    background-color: #7a52d6;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
 .actionImage {
-  height: 300px;
-  object-fit: cover;
+    height: 300px;
+    object-fit: cover;
 }
-
 
 .input-field {
-  width: -webkit-fill-available;
-  padding: 10px 10px 10px 10px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  border-color: rgb(233, 233, 233);
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 5px;
+    width: -webkit-fill-available;
+    padding: 10px 10px 10px 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-color: rgb(233, 233, 233);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
 }
-
 
 .input-field:focus {
-  outline: none;
+    outline: none;
 }
 
-
-
-
-body{
-  padding: 0;
-  margin: 0;
+body {
+    padding: 0;
+    margin: 0;
 }
 
-
-  footer {
+footer {
     width: 100%;
     background-color: #647582;
     font-family: Calibri, sans-serif;
     padding: 15px 0;
     text-align: center;
-  }
-  
+}

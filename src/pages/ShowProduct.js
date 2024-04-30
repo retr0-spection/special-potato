@@ -7,6 +7,7 @@ import useStore from "../zustand/store";
 
 function ShowProduct() {
   const { profile, addToCart } = useStore();
+  const [selectedSize, setSelectedSize] = React.useState(null);
 
   let { id } = useParams(); // Get the product ID from URL parameters
 
@@ -23,6 +24,10 @@ function ShowProduct() {
 
   // The remaining stars will be empty
   const emptyStars = 5 - filledStars;
+
+  const setSize = (size) => {
+    setSelectedSize(size);
+  };
 
   return (
     <div
@@ -86,10 +91,36 @@ function ShowProduct() {
           <p>Price: ${product.new_price}</p>
           <p>Old Price: ${product.old_price}</p>
           <div className="Sizes">
-            <div>S</div>
-            <div>M</div>
-            <div>L</div>
-            <div>XL</div>
+            <div
+              className={selectedSize == "xs" ? "selectedSize" : ""}
+              onClick={() => setSize("xs")}
+            >
+              XS
+            </div>
+            <div
+              className={selectedSize == "s" ? "selectedSize" : ""}
+              onClick={() => setSize("s")}
+            >
+              S
+            </div>
+            <div
+              className={selectedSize == "m" ? "selectedSize" : ""}
+              onClick={() => setSize("m")}
+            >
+              M
+            </div>
+            <div
+              className={selectedSize == "l" ? "selectedSize" : ""}
+              onClick={() => setSize("l")}
+            >
+              L
+            </div>
+            <div
+              className={selectedSize == "xl" ? "selectedSize" : ""}
+              onClick={() => setSize("xl")}
+            >
+              XL
+            </div>
           </div>
           <div className="AddCart">
             <button onClick={() => addToCart(product)}>Add to Cart</button>

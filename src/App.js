@@ -42,12 +42,12 @@ function App() {
       path: "/search/:query",
       element: <Search />,
     },
-    
+
     {
       path: "/Everything",
       element: <Everything />,
     },
-    
+
     {
       path: "/Men",
       element: <MenPage />,
@@ -61,7 +61,7 @@ function App() {
       element: <KidsPage />,
     },
     {
-      path: "/:id",
+      path: "/product/:id",
       element: <ShowProduct />,
     },
     {
