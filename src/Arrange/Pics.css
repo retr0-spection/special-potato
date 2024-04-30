@@ -1,0 +1,36 @@
+.Pics{
+    width: 350px;
+}
+
+.Pics p{
+    margin: 6px 0px;
+}
+
+.P_Price{
+    display: flex;
+    gap: 20px;
+}
+
+.P_Pricen{
+    color: rgb(119, 129, 138);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.P_Priceo{
+    color: rgb(88, 97, 105);
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: line-through;
+}
+.Pics:hover{
+    transform: scale(1.05);
+    transition:0.6s;
+}
+
+.Pics img {
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+  }
+  

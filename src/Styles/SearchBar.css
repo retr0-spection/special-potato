@@ -1,0 +1,27 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Adjust width as needed */
+  margin: 0 auto; /* Center the search bar horizontally */
+  margin-top: 10px; /* Add space from the top */
+  padding-right: 100px;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  flex-grow: 1; /* Take up remaining space */
+}
+
+.search-bar button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}

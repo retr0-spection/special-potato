@@ -1,0 +1,33 @@
+.P_items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-height: 90vh; /* Change height to min-height to allow flexibility */
+}
+
+.P_items h1 {
+  color: black;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.P_items hr {
+  width: 200px;
+  height: 6px;
+  border-radius: 10px;
+  background: black;
+}
+
+.P_Get {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  margin-top: 50px;
+  gap: 30px;
+}
+
+.P_Get .Pics {
+  flex-basis: calc(25% - 30px); 
+  max-width: calc(25% - 30px); 
+}

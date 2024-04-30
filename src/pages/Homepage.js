@@ -9,7 +9,7 @@ function Homepage() {
         <>
             <div className='Homepage-container'>
                 <div className='Homepage-content'>
-                    <h1>LOOKING FOR SOME GOODIES</h1>
+                    <h1>LOOKING FOR SOME FRESH NEW CLOTHES</h1>
                     <p>Raties will set you up straight</p>
                 </div>
             </div>

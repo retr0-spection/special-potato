@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management</title>
+    <link rel="stylesheet" type="text/css" href="permissions.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Permission Management</h2>
+        <label for="entity">Select Entity:</label>
+        <select id="entity">
+            <option value="employee">Employee</option>
+            <option value="customer">Customer</option>
+            <option value="admin">Admin</option>
+
+        </select>
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter username">
+        <label for="permissions">Permissions:</label>
+        <input type="text" id="permissions" placeholder="Enter permissions">
+        <button onclick="addPermission()">Add</button>
+        <button onclick="removePermission()">Remove</button>
+        <button onclick="changePermissions()">Change Permissions</button>
+    </div>
+
+    <script>
+        function addPermission() {
+            var entity = document.getElementById("entity").value;
+            var username = document.getElementById("username").value;
+            var permissions = document.getElementById("permissions").value.split(",").map(item => item.trim());
+
+            console.log("Adding permissions for " + entity + ": " + permissions + " to user: " + username);
+        }
+
+        function removePermission() {
+            var entity = document.getElementById("entity").value;
+            var username = document.getElementById("username").value;
+            var permissions = document.getElementById("permissions").value.split(",").map(item => item.trim());
+
+            console.log("Removing permissions for " + entity + ": " + permissions + " from user: " + username);
+        }
+
+        function changePermissions() {
+            var entity = document.getElementById("entity").value;
+            var username = document.getElementById("username").value;
+            var permissions = document.getElementById("permissions").value.split(",").map(item => item.trim());
+
+            console.log("Changing permissions for " + entity + ": " + permissions + " for user: " + username);
+        }
+    </script>
+</body>
+</html>

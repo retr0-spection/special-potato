@@ -4,9 +4,9 @@ import Navigator from '../Access/Navigator';
 import Features from '../pages/Features';
 import Footer from "./Footer";
 import Locations from "../pages/Location";
-import Products from "./Products";
 import '../App.css';
 import useStore from "../zustand/store";
+import Things_to_find from "./Things_to_find";
 
 
 function Home() {
@@ -16,7 +16,7 @@ function Home() {
              <Navigator/>
              <Homepage/>
              {/* <Features/> */}
-             <Products/>
+             <Things_to_find/>
              <Locations/>
              <Footer/>
             </div>
