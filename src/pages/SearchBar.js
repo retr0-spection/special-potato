@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../Styles/SearchBar.css";
 
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");
-
+  const navigate = useNavigate();
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
   const handleSearchSubmit = (event) => {
-    event.preventDefault();
+    if (searchTerm.length) {
+      navigate("/search/" + searchTerm);
+    }
     console.log("Searching for:", searchTerm);
   };
 
@@ -28,7 +30,6 @@ function SearchBar() {
           <FaSearch />
         </button>
       </form>
-      
     </div>
   );
 }
