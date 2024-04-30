@@ -1,14 +1,10 @@
+import React from "react";
+import "../frontend/stock.css";
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Management</title>
-    <link rel="stylesheet" type="text/css" href="stock.css" />
+function Stock(){
+    
 
-</head>
 <body>
     <div class="container">
         <h1>Stock Management</h1>
@@ -68,11 +64,13 @@
                     </td>
                     <td>20</td>
                 </tr>
-
-                <!-- Add more rows as needed -->
             </tbody>
         </table>
         <button class="btn">Save Changes</button>
     </div>
 </body>
-</html>
+
+
+}
+
+export default GiStorkDelivery;
