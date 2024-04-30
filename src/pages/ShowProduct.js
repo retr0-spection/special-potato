@@ -3,8 +3,12 @@ import { useParams } from "react-router-dom";
 import star_icon_filled from "../images/star_icon.png";
 import star_icon_empty from "../images/star_dull_icon.png";
 import Everything from "./Everything";
+import useStore from "../zustand/store";
 
 function ShowProduct() {
+
+    const { profile, addToCart } = useStore();
+
     let { id } = useParams(); // Get the product ID from URL parameters
 
     // Find the product with the matching ID
@@ -59,7 +63,7 @@ function ShowProduct() {
 
                     </div>
                     <div className="AddCart">
-                        <button>Add to Cart</button>
+                        <button onClick={addToCart(product)}>Add to Cart</button>
                     </div>
                     
                 </div>

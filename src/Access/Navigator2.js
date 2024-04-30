@@ -18,6 +18,8 @@ function Navigator2() {
 
   const handleClick = () => setOpen(true);
 
+  const cartSize = useStore((state) => state.cart.length);
+
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
   };
@@ -55,7 +57,7 @@ function Navigator2() {
           ) : null}
           <div className="Arr">
           <Link to="/cart">
-            <div className="cart-count">0</div>
+            <div className="cart-count">{cartSize}</div>
             <img src={icon1} alt="Bjj" />
           </Link>
           </div>
