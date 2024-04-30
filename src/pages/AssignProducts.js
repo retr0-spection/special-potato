@@ -30,13 +30,7 @@ let data_product = [
     new_price:100.00,
     old_price:150.00,
   },
-  {id:20,
-    name:"blazer-suit",
-    image:p20,
-    new_price:100.00,
-    old_price:150.00,
-  },
-
+ 
 ];
 
 export default data_product;

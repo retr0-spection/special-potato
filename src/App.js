@@ -15,6 +15,7 @@ import Admin from "./pages/Admin";
 import permissions from "./pages/permissions";
 import Checkout from "./pages/Checkout";
 import Stock from "./pages/Stock";
+import Everything from "./pages/All";
 
 function App() {
   const router = createBrowserRouter([
@@ -29,6 +30,11 @@ function App() {
     {
       path: "/signup",
       element: <SignupPage />,
+    },
+    
+    {
+      path: "/Everything",
+      element: <Everything />,
     },
     
     {

@@ -18,6 +18,7 @@ function  Woman() {
         <>
             <div >
              <Navigator2/>
+             <Categories/>
              <GetWoman/>
              <Footer/>
             

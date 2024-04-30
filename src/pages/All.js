@@ -9,22 +9,20 @@ import useStore from "../zustand/store";
 import Things_to_find from "./Things_to_find";
 import '../Styles/Homepage.css';
 import Categories from "../Access/Categories";
-import GetMen from "./GetMen";
+import GetEverything from "./GetEverything";
 
 
 
-function  Men() {
+function  All() {
     return (
-        <>
             <div >
-             <Navigator2/>
-             <Categories/>
-             <GetMen/>
+                <Navigator2/>
+                <Categories/>
+             <GetEverything/>
              <Footer/>
-            
             </div>
-        </>
+        
     );
 }
 
-export default Men;
+export default All;

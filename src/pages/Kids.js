@@ -17,6 +17,7 @@ function  Kids() {
     return (
             <div >
                 <Navigator2/>
+                <Categories/>
              <GetKids/>
              <Footer/>
             </div>

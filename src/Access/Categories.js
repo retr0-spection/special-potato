@@ -8,6 +8,17 @@ function Categories() {
   return (
     <div className="categories">
       <div className="choose">
+      <Link
+          to="/Everything"
+          onMouseEnter={() => {
+            setHoveredMenu("Everything");
+          }}
+          onMouseLeave={() => {
+            setHoveredMenu("");
+          }}
+        >
+        All{hoveredMenu === "Everything" && <hr />} 
+        </Link>
         <Link
           to="/Men"
           onMouseEnter={() => {
@@ -41,6 +52,7 @@ function Categories() {
         >
           Kids{hoveredMenu === "Kids" && <hr />} 
         </Link>
+        
       </div>
     </div>
   );
