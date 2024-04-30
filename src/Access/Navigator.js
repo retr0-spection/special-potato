@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Logo from "../images/Things.jpg";
 import { Link } from "react-router-dom";
 import "../Styles/Navigator.css";
 import useStore from "../zustand/store";
@@ -36,7 +35,7 @@ function Navigator() {
       <div className="right">
         <div style={{display:'flex', alignItems:'center'}} className={`menu ${menuVisible ? "menu-visible" : "menu-hidden"}`}>
        
-          <Link to="/">Home</Link>
+          <Link to="/Products">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contacts</Link>
           {!profile ? (

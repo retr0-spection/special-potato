@@ -1,0 +1,52 @@
+.categories {
+    width: 100%;
+    height: 70px;
+    background-color: #bababa;
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  
+  .choose {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:3px;
+    cursor: pointer;
+  }
+  
+  .choose a {
+    color: white;
+    text-decoration: none;
+     margin: 20px;  
+  }
+
+  .choose hr{
+    border: none;
+    width: 80%;
+    height: 3px;
+    border-radius: 10px;
+    background: #0f0e0e;
+  }
+  
+
+  
+
+  
+  @media only screen and (max-width: 900px) {
+    .choose a {
+      width: 70px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .choose a {
+      display: none;
+    }
+   
+  }
+  
+
+  
