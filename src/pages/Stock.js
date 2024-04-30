@@ -2,9 +2,9 @@ import React from "react";
 import "../frontend/stock.css";
 
 
+
 function Stock(){
     
-
 <body>
     <div class="container">
         <h1>Stock Management</h1>
@@ -73,4 +73,4 @@ function Stock(){
 
 }
 
-export default GiStorkDelivery;
+export default Stock;

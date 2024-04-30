@@ -11,6 +11,10 @@ import WomanPage from "./pages/Woman";
 import KidsPage from "./pages/Kids";
 import ShowProduct from "./pages/ShowProduct"; 
 import Cart from "./pages/Cart";
+import Admin from "./pages/Admin";
+import permissions from "./pages/permissions";
+import Checkout from "./pages/Checkout";
+import Stock from "./pages/Stock";
 
 function App() {
   const router = createBrowserRouter([
@@ -46,6 +50,23 @@ function App() {
     {
       path: "/cart",
       element: <Cart />,
+    },
+    {
+      path: "/admin",
+      element: <Admin />,
+    },
+    {
+      path: "/checkout",
+      element: <Checkout />,
+    },
+    {
+      path: "/permissions",
+      element: <permissions />,
+    },
+
+    {
+      path: "/permissions",
+      element: <permissions />,
     },
 
   ]);
