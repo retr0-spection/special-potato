@@ -38,7 +38,7 @@ th {
 
 .btn {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #9fa6ae;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -46,7 +46,7 @@ th {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #737e89;
 }
 
 .checkout-form {

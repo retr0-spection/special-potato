@@ -5,6 +5,12 @@ const useStore = create((set) => ({
   cart: [],
   setProfile: (payload) => set((state) => ({ profile: payload  })),
   addToCart: (payload) => set((state) => ({cart: [...state.cart, payload]})),
+  removeFromCart: (productId) => set((state) => ({
+    cart: state.cart.filter(item => item.id !== productId)
+  })),
+
+  
+  
 
 }))
 

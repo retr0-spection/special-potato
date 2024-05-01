@@ -77,6 +77,10 @@ function App() {
       element: <Checkout />,
     },
     {
+      path: "/cart/checkout",
+      element: <Checkout />,
+    },
+    {
       path: "/admin/management",
       element: <Permissions />,
     },
