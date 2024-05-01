@@ -7,6 +7,7 @@ function GetKids() {
   return (
     <div>
       <h1> KIDS</h1>
+
       {Return(AssignKids)}
     </div>
   );

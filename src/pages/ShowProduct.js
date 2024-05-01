@@ -6,6 +6,7 @@ import Everything from "./Everything";
 import useStore from "../zustand/store";
 import Navigator2 from "../Access/Navigator2"
 import Footer from "./Footer"
+import Categories from "../Access/Categories";
 
 function ShowProduct() {
   const { addToCart } = useStore(); // Update to get addToCart method from store
@@ -35,6 +36,7 @@ function ShowProduct() {
     
     <div>
       <Navigator2/>
+      <Categories/>
     <div
       style={{
         display: "flex",
@@ -93,8 +95,8 @@ function ShowProduct() {
         </div>
 
         <div className="product-details">
-          <p>Price: ${product.new_price}</p>
-          <p>Old Price: ${product.old_price}</p>
+          <p>Price: R{product.new_price}</p>
+          <p>Old Price: R{product.old_price}</p>
           <div className="Sizes">
             <div
               className={selectedSize === "xs" ? "selectedSize" : ""}
