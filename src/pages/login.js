@@ -6,6 +6,7 @@ import { Rings } from "react-loader-spinner";
 import axios from "axios";
 import { GoogleLogin } from "@react-oauth/google";
 import { decodeToken, useJwt } from "react-jwt";
+import API from "../api";
 
 const LoginPage = () => {
   const [email, setEmail] = React.useState("");
@@ -44,10 +45,11 @@ const LoginPage = () => {
       //   navigate("/");
       // }, 5000);
   
-      const res = await axios.post("https://espazaserver.azurewebsites.net/auth/authenticate", {token:payload.credential})
+      const res =  await API.AUTH.authenticate(payload.credential)
       setSubmitting(false)
   
       if (res.data){
+        console.log(res.data)
         setProfile(res.data)
         navigate("/");
       }

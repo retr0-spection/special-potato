@@ -10,10 +10,17 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+
+
 # Copy the remaining application code into the container
 COPY . .
+
+#Build
+RUN npm run build
+
+RUN npm install -g serve
 
 # Exposing server port
 ENV PORT=80
 EXPOSE 80
-CMD ["npm", "run", "start"]
+CMD ["serve", "-s", "build"]

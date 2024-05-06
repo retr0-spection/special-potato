@@ -1,7 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../frontend/stock.css";
+import API from "../api";
+import useStore from "../zustand/store";
+import StockItem from "../components/admin/stock/stockItem";
+import { IoIosAdd } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 function Stock() {
+  const { profile, setProfile } = useStore();
+  const [stock, setStock] = React.useState([])
+  const navigate = useNavigate()
+
+  const getStock = async () => {
+    console.log(profile)
+    const config = {
+      headers : {
+        Authorization: 'Bearer ' + profile.token
+      }
+    }
+    const res = await API.STOCK.get(config)
+    if (res.data){
+      setStock(res.data)
+      console.log(res.data)
+    }
+  }
+
+  useEffect(() => {
+   getStock()
+  },[])
+
   const [shirts, setShirts] = React.useState(20);
   const [jackets, setJackets] = React.useState(13);
   const [pants, setPants] = React.useState(53);
@@ -10,90 +37,30 @@ function Stock() {
   return (
     <body>
       <div class="container">
+        <section style={{display:'flex', width:'100%', justifyContent:'space-between', alignItems:'center', }}>
         <h1>Stock Management</h1>
+
+        <button onClick={() => navigate('/admin/stock/add')} style={{display:'flex', alignItems:'center',padding:0, paddingLeft:'10px', paddingRight:'10px',marginRight:'10px'}}>
+          <IoIosAdd style={{fontSize:24}}/>
+          <p>Add New</p>
+        </button>
+
+
+        </section>
         <table>
           <thead>
             <tr>
-              <th>Item</th>
-              <th>Size</th>
-              <th>Quantity Available</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Quantity</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>T-shirt</td>
-              <td>
-                <select>
-                  <option value="small">S</option>
-                  <option value="medium">M</option>
-                  <option value="large">L</option>
-                </select>
-              </td>
-              <td>
-                <input
-                  value={shirts}
-                  onChange={(e) => setShirts(e.target.value)}
-                  type="number"
-                />
-              </td>
-            </tr>
-
-            <tr>
-              <td>Jackets</td>
-              <td>
-                <select>
-                  <option value="small">S</option>
-                  <option value="medium">M</option>
-                  <option value="large">L</option>
-                </select>
-              </td>
-              <td>
-                <input
-                  value={jackets}
-                  onChange={(e) => setJackets(e.target.value)}
-                  type="number"
-                />
-              </td>
-            </tr>
-
-            <tr>
-              <td>Pants</td>
-              <td>
-                <select>
-                  <option value="small">S</option>
-                  <option value="medium">M</option>
-                  <option value="large">L</option>
-                </select>
-              </td>
-              <td>
-                <input
-                  value={pants}
-                  onChange={(e) => setPants(e.target.value)}
-                  type="number"
-                />
-              </td>
-            </tr>
-
-            <tr>
-              <td>Hoodies</td>
-              <td>
-                <select>
-                  <option value="small">S</option>
-                  <option value="medium">M</option>
-                  <option value="large">L</option>
-                </select>
-              </td>
-              <td>
-                <input
-                  value={hoodies}
-                  onChange={(e) => setHoodies(e.target.value)}
-                  type="number"
-                />
-              </td>
-            </tr>
+          {stock.map((item, i) => <StockItem key={i} item={item} /> )}
+          
           </tbody>
         </table>
-        <button class="btn">Save Changes</button>
       </div>
     </body>
   );
