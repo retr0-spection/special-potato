@@ -17,6 +17,7 @@ function Search() {
   const filter = (query) => {
     const _filtered = Everything.filter((item) => item.name.includes(query));
     setProducts(_filtered);
+    
   };
 
   useEffect(() => {

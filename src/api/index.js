@@ -46,6 +46,9 @@ const ORDER = {
     getById: async (id, config) => {
         return axios.get(domain + `/order/${id}`, config)
     },
+    getByUserId: async (config) => {
+        return axios.get(domain + `/order/user/`, config)
+    },
 }
 
 API.STOCK = STOCK
