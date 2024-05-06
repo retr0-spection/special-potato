@@ -20,6 +20,9 @@ const useStore = create(persist((set, get) => ({
       }));
     }
   },
-})))
+}),{
+  name: 'sys-storage',
+  // storage: createJSONStorage(() => sessionStorage())
+}))
 
-export default useStore;
+export default useStore
