@@ -22,6 +22,7 @@ import StockEdit from "./pages/Admin/Stock/stockEdit";
 import StockAdd from "./pages/Admin/Stock/stockAdd";
 import UserEdit from "./pages/Admin/User/userEdit";
 import OrderComponent from "./pages/Admin/Order";
+import OrderListComponent from "./pages/Order";
 
 function App() {
   const router = createBrowserRouter([
@@ -70,6 +71,10 @@ function App() {
     {
       path: "/cart",
       element: <Cart />,
+    },
+    {
+      path: "/order",
+      element: <OrderListComponent />,
     },
     {
       path: "/admin",

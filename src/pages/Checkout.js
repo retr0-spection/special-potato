@@ -1,54 +1,78 @@
 import React from "react";
 import "../frontend/checkout.css";
 import "../frontend/stock.css";
+import { Button, Input, InputLabel } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { Rings } from "react-loader-spinner";
+import useStore from "../zustand/store";
 
+function Checkout() {
+    const [isLoading, setIsLoading] = React.useState(false)
+    const navigate = useNavigate()
+    const {emptyCart} = useStore()
 
+    const submit = () => {
+        setIsLoading(true)
 
-function Checkout(){
-    return(
-        
-<body>
-    <div class="container">
+        setTimeout(() => {
+            setIsLoading(false)
+            navigate('/')
+            alert('Order Complete')
+            emptyCart()
+        }, 5000)
+    }
+  return (
+    <body>
         <h1>Checkout</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Size</th>
-                    <th>Quantity</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>T-shirt</td>
-                    <td>Medium</td>
-                    <td>2</td>
-                </tr>
-            </tbody>
-        </table>
-        <form class="checkout-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required />
-
-            <label for="phone_number">Phone Number:</label>
-            <input type="number" id="phone_number" name="Phone number" required />
-
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" required />
-
-            <label for="city">City:</label>
-            <input type="text" id="city" name="city" required />
-
-            <label for="zip">ZIP Code:</label>
-            <input type="text" id="zip" name="zip" required />
-
-            <input type="submit" class="btn" value="Place Order" />
-        </form>
-    </div>
-</body>
-
-
-    );
+        <section style={{display:'flex',padding:'2%'}}>
+            <section style={{width:'50%'}}>
+                <h3>Payment Methods</h3>
+                <section>
+                    <InputLabel>Card Number</InputLabel>
+                    <Input style={{width:'100%'}} />
+                </section>
+                <section>
+                    <InputLabel>Cvv</InputLabel>
+                    <Input  style={{width:'100%'}}/>
+                </section>
+                <section>
+                    <InputLabel>Expiry Date</InputLabel>
+                    <Input style={{width:'100%'}} />
+                </section>
+            </section>
+            <section style={{width:'50%'}}>
+                <h3>Delivery Address</h3>
+                <section>
+                    <InputLabel>Steet Name</InputLabel>
+                    <Input required style={{width:'100%'}} />
+                </section>
+                <section>
+                    <InputLabel >Street Number</InputLabel>
+                    <Input type="number" required  style={{width:'100%'}}/>
+                </section>
+                <section>
+                    <InputLabel>Building Name (optional)</InputLabel>
+                    <Input style={{width:'100%'}}/>
+                </section>
+                <section>
+                    <InputLabel>Postal Code</InputLabel>
+                    <Input type="number" required style={{width:'100%'}} />
+                </section>
+            </section>
+        </section>
+        <section style={{display:'flex', justifyContent:'end'}}>
+            <Button onClick={submit} style={{backgroundColor:'black', color:'white'}}>
+                {isLoading ?  <Rings
+                  visible={true}
+                  height="30"
+                  width="30"
+                  color="gray"
+                  ariaLabel="rings-loading"
+                />   :  'Confirm Order' }
+            </Button>
+        </section>
+    </body>
+  );
 }
 
 export default Checkout;
