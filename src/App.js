@@ -19,6 +19,10 @@ import Everything from "./pages/All";
 import Category from "./pages/category";
 import Search from "./pages/search";
 import Permissions from "./pages/permissions";
+import StockEdit from "./pages/Admin/Stock/stockEdit";
+import StockAdd from "./pages/Admin/Stock/stockAdd";
+import UserEdit from "./pages/Admin/User/userEdit";
+import OrderComponent from "./pages/Admin/Order";
 
 function App() {
   const router = createBrowserRouter([
@@ -80,11 +84,28 @@ function App() {
       path: "/admin/management",
       element: <Permissions />,
     },
+    {
+      path: "/admin/order",
+      element: <OrderComponent />,
+    },
+    {
+      path: "/admin/user/edit/:id",
+      element: <UserEdit />,
+    },
 
     {
       path: "/admin/stock",
       element: <Stock />,
     },
+    {
+      path: "/admin/stock/edit/:id",
+      element: <StockEdit />,
+    },
+    {
+      path: "/admin/stock/add/",
+      element: <StockAdd />,
+    },
+   
   ]);
 
   ReactDOM.createRoot(document.getElementById("root")).render(
