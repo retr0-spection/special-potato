@@ -11,17 +11,32 @@ const StockAdd = () => {
   const [price, setPrice] = React.useState(0);
   const [description, setDescription] = React.useState(null);
   const [image, setImage] = React.useState("");
-  const [gender, setGender] = React.useState('male');
+  const [gender, setGender] = React.useState("male");
+  const [quanXS, setQuanXS] = React.useState(0);
+  const [quanS, setQuanS] = React.useState(0);
+  const [quanM, setQuanM] = React.useState(0);
+  const [quanL, setQuanL] = React.useState(0);
+  const [quanXL, setQuanXL] = React.useState(0);
 
   const { profile } = useStore();
   const navigate = useNavigate();
 
   const addItem = async () => {
+    const quantity = {
+        xs:quanXS,
+        s: quanS,
+        m:quanM,
+        l:quanL,
+        xl:quanXL
+    }
+
     const payload = {
       name,
       description,
       price,
       image,
+      quantity,
+      gender
     };
 
     const config = {
@@ -30,7 +45,7 @@ const StockAdd = () => {
       },
     };
 
-    const res = await API.STOCK.changeById(id, payload, config);
+    const res = await API.STOCK.add(payload, config);
     if (res.data) {
       navigate("/admin/stock");
     }
@@ -86,6 +101,7 @@ const StockAdd = () => {
           <Input
             placeholder="Product Price"
             value={price}
+            type="number"
             onChange={(e) => setPrice(e.target.value)}
             style={{ width: "100%" }}
           />
@@ -111,27 +127,78 @@ const StockAdd = () => {
             style={{ width: "100%" }}
           />
         </section>
-        <section>
-          <FormLabel>Gender</FormLabel>
-
-          <Select
-            labelId="gender-select-label"
-            id="gender-select"
-            value={gender}
-            // label="Age"
-            onChange={(e) => setGender(e.target.value)}
-          >
-            <MenuItem value={'male'}>Male</MenuItem>
-            <MenuItem value={'female'}>Female</MenuItem>
-            <MenuItem value={'unisex'}>Unisex</MenuItem>
-          </Select>
+        <section style={{ display: "flex", width: "100%" }}>
+          <section>
+            <FormLabel>Gender</FormLabel>
+            <Select
+              labelId="gender-select-label"
+              id="gender-select"
+              value={gender}
+              // label="Age"
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <MenuItem value={"male"}>Male</MenuItem>
+              <MenuItem value={"female"}>Female</MenuItem>
+              <MenuItem value={"unisex"}>Unisex</MenuItem>
+            </Select>
+          </section>
+          <section>
+            <FormLabel>Quantity</FormLabel>
+            <section style={{ display: "flex", width: "", padding: 0 }}>
+              <div style={{marginRight:10}}>
+                <FormLabel>XS</FormLabel>
+                <Input
+                  type="number"
+                  min="0"
+                  value={quanXS}
+                  onChange={(e) => setQuanXS(e.target.value)}
+                />
+              </div>
+              <div style={{marginRight:10}}>
+                <FormLabel>S</FormLabel>
+                <Input
+                  type="number"
+                  min="0"
+                  value={quanS}
+                  onChange={(e) => setQuanS(e.target.value)}
+                />
+              </div>
+              <div style={{marginRight:10}}>
+                <FormLabel>M</FormLabel>
+                <Input
+                  type="number"
+                  min="0"
+                  value={quanM}
+                  onChange={(e) => setQuanM(e.target.value)}
+                />
+              </div>
+              <div style={{marginRight:10}}>
+                <FormLabel>L</FormLabel>
+                <Input
+                  type="number"
+                  min="0"
+                  value={quanL}
+                  onChange={(e) => setQuanL(e.target.value)}
+                />
+              </div>
+              <div style={{marginRight:10}}>
+                <FormLabel>XL</FormLabel>
+                <Input
+                  type="number"
+                  min="0"
+                  value={quanXL}
+                  onChange={(e) => setQuanXL(e.target.value)}
+                />
+              </div>
+            </section>
+          </section>
         </section>
         <section>
           <Button
             onClick={addItem}
             style={{ backgroundColor: "black", color: "white" }}
           >
-            Edit
+            Add
           </Button>
         </section>
       </section>

@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const domain = "http://localhost:3001/api"
+const domain = "https://espazaserver.azurewebsites.net/api" 
 //https://espazaserver.azurewebsites.net/auth/authenticate
 
 const API = {}
@@ -26,7 +26,31 @@ const AUTH = {
     }
 }
 
+
+const USER = {
+    getAll: async (config) => {
+        return axios.get(domain + '/user', config)
+    },
+    getById: async (id, config) => {
+        return axios.get(domain + `/user/${id}`, config)
+    },
+    modify: async (id,payload, config) => {
+        return axios.post(domain + `/user/${id}`, payload, config)
+    },
+}
+
+const ORDER = {
+    getAll: async (config) => {
+        return axios.get(domain + '/order', config)
+    },
+    getById: async (id, config) => {
+        return axios.get(domain + `/order/${id}`, config)
+    },
+}
+
 API.STOCK = STOCK
 API.AUTH = AUTH
+API.USER = USER
+API.ORDER = ORDER
 
 export default API
