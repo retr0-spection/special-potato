@@ -18,6 +18,8 @@ import Category from "./GetProducts/category";
 
 import Search from "./pages/search";
 import Permissions from "./pages/permissions";
+import StockEdit from "./pages/Admin/Stock/stockEdit";
+import StockAdd from "./pages/Admin/Stock/stockAdd";
 
 function App() {
   const router = createBrowserRouter([
@@ -87,6 +89,14 @@ function App() {
     {
       path: "/admin/stock",
       element: <Stock />,
+    },
+    {
+      path: "/admin/stock/edit/:id",
+      element: <StockEdit />,
+    },
+    {
+      path: "/admin/stock/add/",
+      element: <StockAdd />,
     },
   ]);
 

@@ -1,6 +1,7 @@
 import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware'
 
-const useStore = create((set, get) => ({
+const useStore = create(persist((set, get) => ({
   profile: null,
   cart: [],
   setProfile: (payload) => set((state) => ({ profile: payload })),
@@ -17,7 +18,11 @@ const useStore = create((set, get) => ({
         ]
       }));
     }
-  },
-}));
+  }}),{
+    name: 'sys-storage',
+    // storage: createJSONStorage(() => sessionStorage())
+  }));
 
-export default useStore;
+
+
+export default useStore
