@@ -3,20 +3,19 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import * as ReactDOM from "react-dom/client";
 import LoginPage from "./pages/login";
-import Home from "./pages/Home";
 import SignupPage from "./pages/signup";
-import ProductsPage from "./pages/Products";
-import MenPage from "./pages/Men";
-import WomanPage from "./pages/Woman";
-import KidsPage from "./pages/Kids";
+import ProductsPage from "./GetProducts/Products";
+import MenPage from "./GetProducts/Men";
+import WomanPage from "./GetProducts/Woman";
+import KidsPage from "./GetProducts/Kids";
 import ShowProduct from "./pages/ShowProduct";
-import Cart from "./pages/Cart";
+import Cart from "./pages/Carting";
 import Admin from "./pages/Admin";
-import permissions from "./pages/permissions";
 import Checkout from "./pages/Checkout";
 import Stock from "./pages/Stock";
-import Everything from "./pages/All";
-import Category from "./pages/category";
+import Everything from "./GetProducts/All";
+import Category from "./GetProducts/category";
+
 import Search from "./pages/search";
 import Permissions from "./pages/permissions";
 import StockEdit from "./pages/Admin/Stock/stockEdit";
@@ -78,6 +77,10 @@ function App() {
     },
     {
       path: "/admin/checkout",
+      element: <Checkout />,
+    },
+    {
+      path: "/cart/checkout",
       element: <Checkout />,
     },
     {

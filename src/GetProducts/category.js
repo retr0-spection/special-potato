@@ -1,21 +1,20 @@
 import React from "react";
-import Homepage from "./Homepage";
 import Navigator2 from "../Access/Navigator2";
-import Features from "../pages/Features";
-import Footer from "./Footer";
-import Locations from "../pages/Location";
+import Footer from "../pages/Footer";
 import "../App.css";
-import useStore from "../zustand/store";
-import Things_to_find from "./Things_to_find";
 import "../Styles/Homepage.css";
 import Categories from "../Access/Categories";
 import { useParams } from "react-router-dom";
-import Everything from "./Everything";
+import Everything from "../pages/Everything";
 import AssignMen from "./AssignMen";
 import Pics from "../Arrange/Pics";
 import { useEffect } from "react";
 import AssignWoman from "./AssignWoman";
 import AssignKids from "./AssignKids";
+import GetMen from "./GetMen";
+import GetWoman from "./GetWoman";
+import GetEverything from "./GetEverything";
+import Return from "../Arrange/Return";
 
 function Category() {
   const params = useParams();
@@ -25,16 +24,16 @@ function Category() {
   useEffect(() => {
     switch (category) {
       case "men":
-        setProducts(AssignMen);
+        setProducts(GetMen);
         break;
       case "women":
-        setProducts(AssignWoman);
+        setProducts(GetWoman);
         break;
       case "kids":
-        setProducts(AssignKids);
+        setProducts(GetEverything);
         break;
       default:
-        setProducts(Everything);
+        setProducts(GetEverything);
     }
   }, []);
 
@@ -42,20 +41,12 @@ function Category() {
     <>
       <div>
         <Navigator2 />
+        <Categories/>
         <div className="P_items">
           <h1>{category}</h1>
           <hr />
           <div className="P_Get">
-            {products.map((product, i) => (
-              <Pics
-                key={i}
-                image={product.image}
-                name={product.name}
-                new={product.new_price}
-                old={product.old_price}
-                id={product.id}
-              />
-            ))}
+            {Return}
           </div>
         </div>
         <Footer />

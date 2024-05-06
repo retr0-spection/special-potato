@@ -4,32 +4,39 @@ import star_icon_filled from "../images/star_icon.png";
 import star_icon_empty from "../images/star_dull_icon.png";
 import Everything from "./Everything";
 import useStore from "../zustand/store";
+import Navigator2 from "../Access/Navigator2"
+import Footer from "./Footer"
+import Categories from "../Access/Categories";
 
 function ShowProduct() {
-  const { profile, addToCart } = useStore();
+  const { addToCart } = useStore(); // Update to get addToCart method from store
   const [selectedSize, setSelectedSize] = React.useState(null);
 
   let { id } = useParams(); // Get the product ID from URL parameters
+  const product = Everything.find((item) => item.id == id); // Find the product
 
-  // Find the product with the matching ID
-  const product = Everything.find((item) => item.id == id);
-
-  // If the product with the given ID is not found, return null or display a message
   if (!product) {
     return <p>Product not found!</p>;
   }
-
-  // Generate a random number of filled stars between 3 and 5
-  const filledStars = Math.min(Math.floor(Math.random() * 3) + 3, 5);
-
-  // The remaining stars will be empty
-  const emptyStars = 5 - filledStars;
 
   const setSize = (size) => {
     setSelectedSize(size);
   };
 
+  const handleAddToCart = () => {
+    addToCart(product); // Add the selected product to the cart
+  };
+
+  // Generate a random number of filled stars between 3 and 5
+  const filledStars = Math.min(Math.floor(Math.random() * 3) + 3, 5);
+  // The remaining stars will be empty
+  const emptyStars = 5 - filledStars;
+
   return (
+    
+    <div>
+      <Navigator2/>
+      <Categories/>
     <div
       style={{
         display: "flex",
@@ -88,45 +95,47 @@ function ShowProduct() {
         </div>
 
         <div className="product-details">
-          <p>Price: ${product.new_price}</p>
-          <p>Old Price: ${product.old_price}</p>
+          <p>Price: R{product.new_price}</p>
+          <p>Old Price: R{product.old_price}</p>
           <div className="Sizes">
             <div
-              className={selectedSize == "xs" ? "selectedSize" : ""}
+              className={selectedSize === "xs" ? "selectedSize" : ""}
               onClick={() => setSize("xs")}
             >
               XS
             </div>
             <div
-              className={selectedSize == "s" ? "selectedSize" : ""}
+              className={selectedSize === "s" ? "selectedSize" : ""}
               onClick={() => setSize("s")}
             >
               S
             </div>
             <div
-              className={selectedSize == "m" ? "selectedSize" : ""}
+              className={selectedSize === "m" ? "selectedSize" : ""}
               onClick={() => setSize("m")}
             >
               M
             </div>
             <div
-              className={selectedSize == "l" ? "selectedSize" : ""}
+              className={selectedSize === "l" ? "selectedSize" : ""}
               onClick={() => setSize("l")}
             >
               L
             </div>
             <div
-              className={selectedSize == "xl" ? "selectedSize" : ""}
+              className={selectedSize === "xl" ? "selectedSize" : ""}
               onClick={() => setSize("xl")}
             >
               XL
             </div>
           </div>
           <div className="AddCart">
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
+            <button onClick={handleAddToCart}>Add to Cart</button>
           </div>
         </div>
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 }

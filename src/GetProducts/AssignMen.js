@@ -12,7 +12,7 @@ import p16 from '../images/jacket3.jpg';
 
 
 
-let AssignProducts2 = [
+let AssignMen = [
   {
     id:9,
     name:"Blue-couted-jacket",
@@ -27,6 +27,7 @@ let AssignProducts2 = [
     old_price:120.50,
   },
   {id:11,
+    Search:"gym-kit",
     name:"gym-set",
     image:p11,
     new_price:60.00,
@@ -34,6 +35,7 @@ let AssignProducts2 = [
   },
 
     {id:12,
+      Search:"pants",
       name:"White-set",
       image:p12,
       new_price:100.00,
@@ -41,24 +43,28 @@ let AssignProducts2 = [
     },
     {
         id:13,
+        Search:"jacket",
         name:"Blue-couted-jacket",
         image:p13,
         new_price:50.00,
         old_price:80.50,
       },
       {id:14,
+        Search:"jacket",
         name:"Grey-Blazer",
         image:p14,
         new_price:85.00,
         old_price:120.50,
       },
       {id:15,
+        Search:"shirt",
         name:"White-shirt",
         image:p15,
         new_price:60.00,
         old_price:100.50,
       },
       {id:16,
+        Search:"suit",
         name:"Suit",
         image:p16,
         new_price:100.00,
@@ -67,5 +73,5 @@ let AssignProducts2 = [
     
   ];
   
-  export default AssignProducts2;
+  export default AssignMen;
   
