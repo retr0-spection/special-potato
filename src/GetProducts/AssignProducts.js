@@ -2,7 +2,6 @@ import p17 from '../images/jacket1.jpg';
 import p18 from '../images/Jacket2.jpg';
 import p19 from '../images/gym set.jpg';
 import p20 from '../images/jacket4.jpg';
-import { Search } from '@mui/icons-material';
 
 
 let AssignProducts = [
