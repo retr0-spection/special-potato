@@ -7,7 +7,7 @@ const StockItem = ({ item }) => {
       <td>{item.name}</td>
       <td>{item.description}</td>
       <td>{item.price}</td>
-      <td>{item.quantity}</td>
+      <td>{item?.totalCount}</td>
     </tr>
   );
 };
