@@ -20,7 +20,7 @@ function Categories() {
         All{hoveredMenu === "Everything" && <hr />} 
         </Link>
         <Link
-          to="/category/men"
+          to="/men"
           onMouseEnter={() => {
             setHoveredMenu("Men");
           }}
@@ -31,7 +31,7 @@ function Categories() {
           Men{hoveredMenu === "Men" && <hr />}
         </Link>
         <Link
-          to="/category/women"
+          to="/woman"
           onMouseEnter={() => {
             setHoveredMenu("Woman");
           }}
@@ -42,7 +42,7 @@ function Categories() {
           Woman{hoveredMenu === "Woman" && <hr />}
         </Link>
         <Link
-          to="/category/kids"
+          to="/kids"
           onMouseEnter={() => {
             setHoveredMenu("Kids");
           }}
