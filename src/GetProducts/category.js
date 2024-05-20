@@ -43,7 +43,12 @@ function Category() {
         <Navigator2 />
         <Categories/>
         <div className="P_items">
-          <h1>{category}</h1>
+          <section>
+            <h1>{category}d</h1>
+            <section>
+              <p>Here we filter</p>
+            </section>
+          </section>
           <hr />
           <div className="P_Get">
             {Return}

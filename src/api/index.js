@@ -1,7 +1,6 @@
 import axios from "axios"
 
-const domain =  "https://espazaserver.azurewebsites.net/api" 
-//https://espazaserver.azurewebsites.net/auth/authenticate
+const domain = 'http://localhost:3001/api' // "https://espazaserver.azurewebsites.net/api" 
 
 const API = {}
 
