@@ -7,31 +7,28 @@ import { Link, useParams } from "react-router-dom";
 import Everything from "./Everything";
 import Navigator2 from "../Access/Navigator2";
 import Footer from "./Footer";
+import { FormLabel, OutlinedInput } from "@mui/material";
+import { CiCircleMinus } from "react-icons/ci";
+import { FaCirclePlus } from "react-icons/fa6";
 
 function Carting() {
-  const { cart, removeFromCart } = useStore(); 
+  const { cart, removeFromCart,  } = useStore(); 
+  const [quantity, setQuantity] = React.useState(0);
+
 
   // Create a new array containing only unique items
-  const uniqueItems = Array.from(new Set(cart.map(item => item.id))).map(id => {
-    return cart.find(item => item.id === id);
-  });
-
+  const uniqueItems = Array.from(new Set(cart.map(item => item)))
   return (
     <div>
       <Navigator2/>
       <div className="Carting">
-        <div className="Carting-format">
-          <p>Product</p>
-          <p>Title</p>
-          <p>Price</p>
-          <p>Quantity</p>
-          <p>Total</p>
-          <p>Remove</p>
+        <div>
+          <p style={{fontWeight:'bold', fontSize:30}}>Shopping Cart</p>
         </div>
         <hr />
         
         {uniqueItems.map((item) => (
-          <div className="Cart-item-format" key={item.id}>
+          <div className="Cart-item-format" key={item.product.id}>
             <div style={{
               position: "relative",
               width: "30vw",
@@ -47,14 +44,21 @@ function Carting() {
                 height: "70%",
                 objectFit: "cover",
                 boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-              }} src={item.image} alt={item.name} />
-              <p>{item.name}</p> 
-              <p>R{item.new_price}</p>
+              }} src={item.product.image} alt={item.product.name} />
+              <p>{item.product.name}</p> 
+              <p>R{item.product.price}</p>
               {/* Calculate the quantity based on occurrences in the cart */}
-              <button className="check_item">{cart.filter(cartItem => cartItem.id === item.id).length}</button>
+              {/* <section style={{}}>
+              <FormLabel>Quantity</FormLabel>
+              <section style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
+              <CiCircleMinus style={{fontSize:30}}  onClick={() => setQuantity(q => q-1 >= 0 ? parseInt(q-1): parseInt(q))} />
+              <OutlinedInput style={{marginLeft:'10px',marginRight:'10px', width:'50px', paddingTop:'10px'}} value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+              <FaCirclePlus style={{fontSize:30}} onClick={() => setQuantity(q => parseInt(q+1))}  />
+              </section>
+              </section> */}
               {/* Display the total price of unique items */}
-              <p>R{item.new_price * cart.filter(cartItem => cartItem.id === item.id).length}</p>
-              <img className="remove-icn" src={remove_icon} onClick={() => removeFromCart(item.id)} alt=""/>
+              <p>R{item.product.price * item.quantity}</p>
+              <img className="remove-icn" src={remove_icon} onClick={() => removeFromCart(item.product.id)} alt=""/>
             </div>
             <hr/>
           </div>
@@ -67,7 +71,7 @@ function Carting() {
               <div style={{display:" flex", flexDirection: "column"}} className="total-itm">
                 <p2>Subtotal</p2>
                 {/* Calculate the total price based on unique items */}
-                <p2>R{uniqueItems.reduce((total, item) => total + item.new_price * cart.filter(cartItem => cartItem.id === item.id).length, 0)}</p2>
+                <p2>R{uniqueItems.reduce((total, item) => total + item.product.price * item.quantity, 0)}</p2>
               </div>
               <hr/>
               <div className="total-itm">
@@ -78,7 +82,7 @@ function Carting() {
               <div style={{display:" flex", flexDirection: "column"}} className="total-itm">
                 <h8>Total</h8>
                 {/* Calculate the total price based on unique items */}
-                <p2>R{uniqueItems.reduce((total, item) => total + item.new_price * cart.filter(cartItem => cartItem.id === item.id).length, 0)}</p2>
+                <p2>R{uniqueItems.reduce((total, item) => total + item.product.price * item.quantity, 0)}</p2>
               </div>
             </div>
             <Link to="/cart/checkout">

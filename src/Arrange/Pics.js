@@ -2,19 +2,18 @@ import React from "react";
 import "./Pics.css";
 import { Link } from "react-router-dom";
 
-function Pics(props) {
+function Item({product}) {
   return (
     <div className="Pics">
-      <Link to={`/product/${props.id}`}>
-        <img src={props.image} alt="" />
+      <Link to={`/product/${product.itemId}`}>
+        <img src={product.image} alt="" />
       </Link>
-      <p>{props.name}</p>
+      <p>{product.name}</p>
       <div className="P_Price">
-        <div className="P_Pricen">R{props.new}</div>
-        {/* <div className="P_Priceo">R{props.old}</div> */}
+        <div className="P_Pricen">R{product.price}</div>
       </div>
     </div>
   );
 }
 
-export default Pics;
+export default Item;

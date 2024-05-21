@@ -5,21 +5,30 @@ import { Button, Input, InputLabel } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Rings } from "react-loader-spinner";
 import useStore from "../zustand/store";
+import API from "../api";
 
 function Checkout() {
     const [isLoading, setIsLoading] = React.useState(false)
     const navigate = useNavigate()
-    const {emptyCart} = useStore()
+    const {emptyCart, cart, profile} = useStore()
+    const products = Array.from(new Set(cart.map(item => item.product)))
 
-    const submit = () => {
+    const submit = async () => {
         setIsLoading(true)
+        const config = {
+            headers:{
+                Authorization: 'Bearer ' + profile.token
+            }
+        }
+        const payload = {
+            products
+        }
 
-        setTimeout(() => {
-            setIsLoading(false)
-            navigate('/')
-            alert('Order Complete')
-            emptyCart()
-        }, 5000)
+        const res = await API.ORDER.create(payload, config)
+        setIsLoading(false)
+        // navigate('/')
+        // alert('Order Complete')
+        // emptyCart()
     }
   return (
     <body>

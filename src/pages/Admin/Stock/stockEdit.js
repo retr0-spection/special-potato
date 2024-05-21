@@ -12,6 +12,7 @@ const StockEdit = () => {
   const [image, setImage] = React.useState("");
   const [description, setDescription] = React.useState(null);
   const [gender, setGender] = React.useState("male");
+  const [type, setType] = React.useState("top");
   const [quanXS, setQuanXS] = React.useState(0);
   const [quanS, setQuanS] = React.useState(0);
   const [quanM, setQuanM] = React.useState(0);
@@ -35,6 +36,8 @@ const StockEdit = () => {
       price,
       quantity,
       gender,
+      image,
+      type
     };
 
     const config = {
@@ -153,6 +156,21 @@ const StockEdit = () => {
           />
         </section>
         <section style={{ display: "flex", width: "100%" }}>
+          <section>
+            <FormLabel>Type</FormLabel>
+            <Select
+              labelId="gender-select-label"
+              id="gender-select"
+              value={type}
+              // label="Age"
+              onChange={(e) => setType(e.target.value)}
+            >
+              <MenuItem value={"top"}>Top</MenuItem>
+              <MenuItem value={"pants"}>Pants</MenuItem>
+              <MenuItem value={"shoes"}>Shoes</MenuItem>
+              <MenuItem value={"jacket"}>Jacket</MenuItem>
+            </Select>
+          </section>
           <section>
             <FormLabel>Gender</FormLabel>
             <Select

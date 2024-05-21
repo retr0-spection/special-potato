@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const domain = 'http://localhost:3001/api' // "https://espazaserver.azurewebsites.net/api" 
+const domain = "https://espazaserver.azurewebsites.net/api"  //'http://localhost:3001/api' // 
 
 const API = {}
 
@@ -19,6 +19,20 @@ const STOCK = {
     }
     
 }
+
+const FEED = {
+    get: async (config) => {
+        return axios.get(domain + '/feed', config)
+    },
+    getById: async (id, config) => {
+        return axios.get(domain + `/feed/${id}`, config)
+    },
+    filter: async (filter, config) => {
+        return axios.get(domain + `/feed/category/${filter}`, config)
+    },
+    
+}
+
 const AUTH = {
     authenticate: async (token) => {
         return axios.post(domain + "/auth/authenticate", {token})
@@ -36,6 +50,9 @@ const USER = {
     modify: async (id,payload, config) => {
         return axios.post(domain + `/user/${id}`, payload, config)
     },
+    delete: async (id, config) => {
+        return axios.delete(domain + `/user/${id}`, config)
+    },
 }
 
 const ORDER = {
@@ -48,11 +65,15 @@ const ORDER = {
     getByUserId: async (config) => {
         return axios.get(domain + `/order/user/`, config)
     },
+    create:async (payload, config) => {
+        return axios.post(domain + `/order`, payload,config)
+    },
 }
 
 API.STOCK = STOCK
 API.AUTH = AUTH
 API.USER = USER
 API.ORDER = ORDER
+API.FEED = FEED
 
 export default API

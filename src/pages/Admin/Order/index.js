@@ -20,6 +20,7 @@ function OrderComponent() {
 
     if (res.data){
       setOrders(res.data)
+      console.log(res.data)
     }
 
   }
@@ -52,6 +53,15 @@ function OrderComponent() {
         </tr>
       </thead>
       <tbody>
+        {orders.map((order) => {
+          return (<tr>
+            <th>{order.id}</th>
+            <th>{order.products.map((product) => {
+              return <p>{product.name}</p>
+            })}</th>
+            <th>{order.customer.email}</th>
+          </tr>)
+        })}
       
       </tbody>
     </table>

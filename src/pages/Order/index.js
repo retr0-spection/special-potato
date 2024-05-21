@@ -4,7 +4,6 @@ import API from "../../api";
 
 const OrderListComponent = () => {
   const [orders, setOrder] = React.useState([]);
-  const [items, setItems] = React.useState([]);
   const { profile } = useStore();
 
   const getOrders = async () => {
@@ -17,8 +16,7 @@ const OrderListComponent = () => {
     const res = await API.ORDER.getByUserId(config);
 
     if (res.data) {
-      setOrder(res.data.orders);
-      setItems(res.data.items)
+      setOrder(res.data);
     }
   };
 
@@ -28,23 +26,14 @@ const OrderListComponent = () => {
 
   return (
     <div>
-      <h1>Orders</h1>
+      <h1>Order History</h1>
       {orders.map((order) => {
-        let _orderItems = JSON.parse(order.items);
-        let finalItems = [];
-        items.map((_item) => {
-            console.log(_item)
-          _orderItems.map((orderItem) => {
-            if (_item.itemId == orderItem) {
-              finalItems.push(_item);
-            }
-          });
-        });
+       
 
         return (
-          <section>
-            <p>OrderNo: {order.id}</p>
-            {finalItems.map((item) => {
+          <section style={{border:'solid', borderWidth:'1px',borderColor:'gray', margin:'10px', borderRadius:10}}>
+            <p style={{fontWeight:'bold'}}>Order Numeber: {order.id}</p>
+            {order.products.map((item) => {
               return (
                 <section
                   style={{
@@ -54,8 +43,8 @@ const OrderListComponent = () => {
                   }}
                 >
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    <img src={item.image} style={{ width:'50px', height:'50px', borderRadius:'5px' }}/>
-                    <p style={{ paddingLeft: "10px" }}>{item.name}</p>
+                    <img src={item.image} style={{ width:'150px', height:'250px', borderRadius:'5px', objectFit:'cover' }}/>
+                    <p style={{ paddingLeft: "10px", fontWeight:'bold',  }}>{item.name}</p>
                   </div>
                   <div>
                     <p>Order Confirmed</p>

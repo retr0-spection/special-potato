@@ -41,17 +41,23 @@ function Category() {
     <>
       <div>
         <Navigator2 />
-        <Categories/>
+        <Categories />
         <div className="P_items">
           <section>
-            <h1>{category}d</h1>
-            <section>
-              <p>Here we filter</p>
-            </section>
+            <h1>{category}</h1>
           </section>
           <hr />
-          <div className="P_Get">
-            {Return}
+          <div className="P_items">
+              {products?.map((product, i) => (
+                <Pics
+                  key={i}
+                  image={product.image}
+                  name={product.name}
+                  new={product.new_price}
+                  old={product.old_price}
+                  id={product.id}
+                />
+              ))}
           </div>
         </div>
         <Footer />

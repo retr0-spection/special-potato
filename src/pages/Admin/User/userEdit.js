@@ -11,6 +11,21 @@ const UserEdit = () => {
   const { profile } = useStore();
   const navigate = useNavigate();
 
+
+
+  const deleteUser = async () => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + profile.token,
+      },
+    };
+
+    const res = await API.USER.delete(id, config);
+    if (res.data) {
+      navigate("/admin/management");
+    }
+  }
+
   const changeDetails = async () => {
 
     const payload = {
@@ -99,13 +114,21 @@ const UserEdit = () => {
             </Select>
         </section>
      
-        <section>
-          <Button
+        <section style={{display:'flex', justifyContent:'space-between'}}>
+        <Button
             onClick={changeDetails}
             style={{ backgroundColor: "black", color: "white" }}
           >
             Edit
           </Button>
+          {profile.email != user.email ?
+          <Button
+
+            onClick={deleteUser}
+            style={{ backgroundColor: "red", color: "white" }}
+          >
+            Delete
+          </Button> : null}
         </section>
       </section> : null}
     </div>
