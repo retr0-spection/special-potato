@@ -117,11 +117,11 @@ function App() {
   ]);
 
   ReactDOM.createRoot(document.getElementById("root")).render(
-    <React.StrictMode>
+    <>
       <GoogleOAuthProvider clientId="957083239350-vbc4tbirup8oi43nq8pnc2o1gvamqu92.apps.googleusercontent.com">
         <RouterProvider router={router} />
       </GoogleOAuthProvider>
-    </React.StrictMode>,
+    </>
   );
 }
 

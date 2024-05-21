@@ -21,9 +21,7 @@ const UserEdit = () => {
     };
 
     const res = await API.USER.delete(id, config);
-    if (res.data) {
       navigate("/admin/management");
-    }
   }
 
   const changeDetails = async () => {

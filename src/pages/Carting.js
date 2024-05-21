@@ -45,8 +45,15 @@ function Carting() {
                 objectFit: "cover",
                 boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
               }} src={item.product.image} alt={item.product.name} />
+               <section>
+              <p style={{fontWeight:'bold'}}>Name</p>
               <p>{item.product.name}</p> 
+              </section>
+              <section>
+              <p style={{fontWeight:'bold'}}>Cost</p>
               <p>R{item.product.price}</p>
+              </section>
+
               {/* Calculate the quantity based on occurrences in the cart */}
               {/* <section style={{}}>
               <FormLabel>Quantity</FormLabel>
@@ -57,7 +64,10 @@ function Carting() {
               </section>
               </section> */}
               {/* Display the total price of unique items */}
+              <section>
+              <p style={{fontWeight:'bold'}}>Quantity</p>
               <p>R{item.product.price * item.quantity}</p>
+              </section>
               <img className="remove-icn" src={remove_icon} onClick={() => removeFromCart(item.product.id)} alt=""/>
             </div>
             <hr/>

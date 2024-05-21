@@ -8,6 +8,7 @@ import Everything from "./Everything";
 import Pics from "../Arrange/Pics";
 import { useEffect } from "react";
 import Categories from "../Access/Categories";
+import API from "../api";
 
 function Search() {
   const params = useParams();
@@ -20,8 +21,13 @@ function Search() {
     
   };
 
+  const getProductsByName = async (query) => {
+    const res = await API.STOCK.getByName(query)
+    setProducts(res.data)
+  }
+
   useEffect(() => {
-    filter(query);
+    getProductsByName(query)
   }, [query]);
 
   return (
@@ -36,11 +42,7 @@ function Search() {
             {products.map((product, i) => (
               <Pics
                 key={i}
-                image={product.image}
-                name={product.name}
-                new={product.new_price}
-                old={product.old_price}
-                id={product.id}
+                product={product}
               />
             ))}
           </div>

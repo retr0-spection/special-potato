@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const domain = "https://espazaserver.azurewebsites.net/api"  //'http://localhost:3001/api' // 
+const domain = "https://espazaserver.azurewebsites.net/api"  
 
 const API = {}
 
@@ -10,6 +10,12 @@ const STOCK = {
     },
     getById: async (id, config) => {
         return axios.get(domain + `/stock/${id}`, config)
+    },
+    getByCategory: async (category, config) => {
+        return axios.get(domain + `/stock/category/${category}`, config)
+    },
+    getByName: async (name, config) => {
+        return axios.get(domain + `/stock/search/${name}`, config)
     },
     changeById: async (id,payload, config) => {
         return axios.post(domain + `/stock/${id}`, payload, config)

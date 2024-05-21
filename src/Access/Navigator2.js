@@ -30,19 +30,19 @@ function Navigator2() {
 
   return (
     <div className="Navigator">
-      <div className="left">
-        <img onClick={window.scroll(0, 0)} src={Uni} alt="B" />
+      <Link to="/" style={{textDecorationLine:'none'}}>
+      <div>
         <h1 className="logo-text" style={{ color: "white" }}>
-          espaza
+        IconicThreads
         </h1>
       </div>
+      </Link>
       <div className="right">
         <div
           style={{ display: "flex", alignItems: "center" }}
           className={`menu ${menuVisible ? "menu-visible" : "menu-hidden"}`}
         >
           <SearchBar />
-          <Link to="/">Home</Link>
           {!profile ? (
             <Link to="/login">Login</Link>
           ) : (
@@ -50,17 +50,17 @@ function Navigator2() {
               Log out
             </Link>
           )}
-          {profile ? (
+          {/* {profile ? (
             <Link to="/" aria-describedby={"profile"} onClick={handleClick}>
               <Avatar />
             </Link>
-          ) : null}
-          <div className="Arr">
+          ) : null} */}
+         {cartSize ? <div className="Arr">
             <Link to="/cart">
               <div className="cart-count">{cartSize}</div>
               <img src={icon1} alt="Bjj" />
             </Link>
-          </div>
+          </div> : null}
         </div>
 
         <Popover

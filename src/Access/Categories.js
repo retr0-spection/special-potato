@@ -9,18 +9,18 @@ function Categories() {
     <div className="categories">
       <div className="choose">
       <Link
-          to="/Everything"
+          to="/"
           onMouseEnter={() => {
-            setHoveredMenu("Everything");
+            setHoveredMenu("All");
           }}
           onMouseLeave={() => {
             setHoveredMenu("");
           }}
         >
-        All{hoveredMenu === "Everything" && <hr />} 
+          All{hoveredMenu === "All" && <hr />}
         </Link>
         <Link
-          to="/men"
+          to="/category/male"
           onMouseEnter={() => {
             setHoveredMenu("Men");
           }}
@@ -31,7 +31,7 @@ function Categories() {
           Men{hoveredMenu === "Men" && <hr />}
         </Link>
         <Link
-          to="/woman"
+          to="/category/female"
           onMouseEnter={() => {
             setHoveredMenu("Woman");
           }}
@@ -39,20 +39,9 @@ function Categories() {
             setHoveredMenu("");
           }}
         >
-          Woman{hoveredMenu === "Woman" && <hr />}
+          Women{hoveredMenu === "Woman" && <hr />}
         </Link>
-        <Link
-          to="/kids"
-          onMouseEnter={() => {
-            setHoveredMenu("Kids");
-          }}
-          onMouseLeave={() => {
-            setHoveredMenu("");
-          }}
-        >
-          Kids{hoveredMenu === "Kids" && <hr />}
-        </Link>
-        
+       
       </div>
     </div>
   );

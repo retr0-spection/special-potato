@@ -26,9 +26,9 @@ function Checkout() {
 
         const res = await API.ORDER.create(payload, config)
         setIsLoading(false)
-        // navigate('/')
-        // alert('Order Complete')
-        // emptyCart()
+        navigate('/')
+        alert('Order Complete')
+        emptyCart()
     }
   return (
     <body>

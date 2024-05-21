@@ -34,7 +34,16 @@ function Permissions() {
 
   return (
     <div class="container">
+      <nav>
+        <a href="/admin">Dashboard</a>
+        <a href="/admin/order">Orders</a>
+        <a href="/admin/stock">Stock</a>
+        {/* <a href="/admin">Customers</a>
+        <a href="/admin">Employees</a> */}
+        <a href="/admin/management">Management</a>
+      </nav>
     <section style={{display:'flex', width:'100%', justifyContent:'space-between', alignItems:'center', }}>
+      
     <h1>User Management</h1>
 
     {/* <button onClick={() => navigate('/admin/stock/add')} style={{display:'flex', alignItems:'center',padding:0, paddingLeft:'10px', paddingRight:'10px',marginRight:'10px'}}>

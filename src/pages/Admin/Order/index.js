@@ -34,6 +34,14 @@ function OrderComponent() {
 
   return (
     <div class="container">
+    <nav>
+        <a href="/admin">Dashboard</a>
+        <a href="/admin/order">Orders</a>
+        <a href="/admin/stock">Stock</a>
+        {/* <a href="/admin">Customers</a>
+        <a href="/admin">Employees</a> */}
+        <a href="/admin/management">Management</a>
+      </nav>
     <section style={{display:'flex', width:'100%', justifyContent:'space-between', alignItems:'center', }}>
     <h1>Order Management</h1>
 

@@ -15,27 +15,27 @@ import GetMen from "./GetMen";
 import GetWoman from "./GetWoman";
 import GetEverything from "./GetEverything";
 import Return from "../Arrange/Return";
+import API from "../api";
 
 function Category() {
   const params = useParams();
   const { category } = params;
   const [products, setProducts] = React.useState(Everything);
 
-  useEffect(() => {
-    switch (category) {
-      case "men":
-        setProducts(GetMen);
-        break;
-      case "women":
-        setProducts(GetWoman);
-        break;
-      case "kids":
-        setProducts(GetEverything);
-        break;
-      default:
-        setProducts(GetEverything);
+
+  const getProductsByCategory = async (category) => {
+    const config = {
+
     }
-  }, []);
+    const res = await API.STOCK.getByCategory(category, config)
+    if (res.data){
+      setProducts(res.data)
+    }
+  }
+
+  useEffect(() => {
+    getProductsByCategory(category)
+  }, [category]);
 
   return (
     <>
@@ -51,11 +51,7 @@ function Category() {
               {products?.map((product, i) => (
                 <Pics
                   key={i}
-                  image={product.image}
-                  name={product.name}
-                  new={product.new_price}
-                  old={product.old_price}
-                  id={product.id}
+                  product={product}
                 />
               ))}
           </div>

@@ -241,8 +241,8 @@ const LoginPage = () => {
       <section
         style={{
           width: "40%",
-          backgroundColor: "yellow",
           position: "relative",
+          backgroundColor:'white'
         }}
       >
         {/* other */}
@@ -260,8 +260,6 @@ const LoginPage = () => {
             bottom: 0,
             left: 0,
             right: 0,
-            backgroundColor: "black",
-            opacity: 0.5,
           }}
         />
         <p
