@@ -4,9 +4,9 @@ import "../Styles/GetProducts.css";
 
 function Return(products) {
   return (
-    <div className="P_items">
+    <section className="P_items">
       <hr />
-      <div className="P_Get">
+      <section className="P_Get">
         {products.map((product, i) => (
           <Pics
             key={i}
@@ -17,8 +17,8 @@ function Return(products) {
             id={product.id}
           />
         ))}
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }
 

@@ -129,6 +129,10 @@
     }
   }
   
-  .menu a:hover {
-    color: #e9e9e9; 
+  .Navigator .menu a:hover{
+    background-color: #282828; 
+  }
+
+  .Navigator a:hover {
+    background-color:transparent; 
   }

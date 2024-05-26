@@ -33,7 +33,7 @@ function OrderComponent() {
 
 
   return (
-    <div class="container">
+    <section class="container">
     <nav>
         <a href="/admin">Dashboard</a>
         <a href="/admin/order">Orders</a>
@@ -73,7 +73,7 @@ function OrderComponent() {
       
       </tbody>
     </table>
-  </div>
+  </section>
   );
 }
 

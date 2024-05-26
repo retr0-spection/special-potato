@@ -52,7 +52,7 @@ function Checkout() {
             <section style={{width:'50%'}}>
                 <h3>Delivery Address</h3>
                 <section>
-                    <InputLabel>Steet Name</InputLabel>
+                    <InputLabel>Street Name</InputLabel>
                     <Input required style={{width:'100%'}} />
                 </section>
                 <section>

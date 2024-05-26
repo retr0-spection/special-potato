@@ -6,8 +6,8 @@ function Categories() {
   const [hoveredMenu, setHoveredMenu] = useState(""); // Initialize hoveredMenu state with an empty string
 
   return (
-    <div className="categories">
-      <div className="choose">
+    <section className="categories">
+      <section className="choose">
       <Link
           to="/"
           onMouseEnter={() => {
@@ -42,8 +42,8 @@ function Categories() {
           Women{hoveredMenu === "Woman" && <hr />}
         </Link>
        
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }
 

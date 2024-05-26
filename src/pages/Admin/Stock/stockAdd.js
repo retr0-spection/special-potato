@@ -54,7 +54,7 @@ const StockAdd = () => {
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    <section style={{ display: "flex" }}>
       <section style={{ width: "50%" }}>
         {image.length ? (
           <img
@@ -162,7 +162,7 @@ const StockAdd = () => {
           <section>
             <FormLabel>Quantity</FormLabel>
             <section style={{ display: "flex", width: "", padding: 0 }}>
-              <div style={{marginRight:10}}>
+              <section style={{marginRight:10}}>
                 <FormLabel>XS</FormLabel>
                 <Input
                   type="number"
@@ -170,8 +170,8 @@ const StockAdd = () => {
                   value={quanXS}
                   onChange={(e) => setQuanXS(e.target.value)}
                 />
-              </div>
-              <div style={{marginRight:10}}>
+              </section>
+              <section style={{marginRight:10}}>
                 <FormLabel>S</FormLabel>
                 <Input
                   type="number"
@@ -179,8 +179,8 @@ const StockAdd = () => {
                   value={quanS}
                   onChange={(e) => setQuanS(e.target.value)}
                 />
-              </div>
-              <div style={{marginRight:10}}>
+              </section>
+              <section style={{marginRight:10}}>
                 <FormLabel>M</FormLabel>
                 <Input
                   type="number"
@@ -188,8 +188,8 @@ const StockAdd = () => {
                   value={quanM}
                   onChange={(e) => setQuanM(e.target.value)}
                 />
-              </div>
-              <div style={{marginRight:10}}>
+              </section>
+              <section style={{marginRight:10}}>
                 <FormLabel>L</FormLabel>
                 <Input
                   type="number"
@@ -197,8 +197,8 @@ const StockAdd = () => {
                   value={quanL}
                   onChange={(e) => setQuanL(e.target.value)}
                 />
-              </div>
-              <div style={{marginRight:10}}>
+              </section>
+              <section style={{marginRight:10}}>
                 <FormLabel>XL</FormLabel>
                 <Input
                   type="number"
@@ -206,7 +206,7 @@ const StockAdd = () => {
                   value={quanXL}
                   onChange={(e) => setQuanXL(e.target.value)}
                 />
-              </div>
+              </section>
             </section>
           </section>
         </section>
@@ -219,7 +219,7 @@ const StockAdd = () => {
           </Button>
         </section>
       </section>
-    </div>
+    </section>
   );
 };
 

@@ -32,23 +32,23 @@ function Search() {
 
   return (
     <>
-      <div>
+      <section>
         <Navigator2 />
         <Categories/>
-        <div className="P_items">
+        <section className="P_items">
           <h1>Search results for '{query}'</h1>
           <hr />
-          <div className="P_Get">
+          <section className="P_Get">
             {products.map((product, i) => (
               <Pics
                 key={i}
                 product={product}
               />
             ))}
-          </div>
-        </div>
+          </section>
+        </section>
         <Footer />
-      </div>
+      </section>
     </>
   );
 }

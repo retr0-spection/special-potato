@@ -33,7 +33,7 @@ function Permissions() {
 
 
   return (
-    <div class="container">
+    <section class="container">
       <nav>
         <a href="/admin">Dashboard</a>
         <a href="/admin/order">Orders</a>
@@ -67,7 +67,7 @@ function Permissions() {
       
       </tbody>
     </table>
-  </div>
+  </section>
   );
 }
 

@@ -42,7 +42,7 @@ const SignupPage = () => {
   };
 
   return (
-    <div
+    <section
       style={{
         height: "100vh",
         width: "100%",
@@ -174,7 +174,7 @@ const SignupPage = () => {
           Bringing Spazas to You
         </p>
       </section>
-    </div>
+    </section>
   );
 };
 

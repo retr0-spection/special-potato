@@ -5,15 +5,11 @@ import * as ReactDOM from "react-dom/client";
 import LoginPage from "./pages/login";
 import SignupPage from "./pages/signup";
 import ProductsPage from "./GetProducts/Products";
-import MenPage from "./GetProducts/Men";
-import WomanPage from "./GetProducts/Woman";
-import KidsPage from "./GetProducts/Kids";
 import ShowProduct from "./pages/ShowProduct";
 import Cart from "./pages/Carting";
 import Admin from "./pages/Admin";
 import Checkout from "./pages/Checkout";
 import Stock from "./pages/Stock";
-import Everything from "./GetProducts/All";
 import Category from "./GetProducts/category";
 
 import Search from "./pages/search";
@@ -45,24 +41,6 @@ function App() {
     {
       path: "/search/:query",
       element: <Search />,
-    },
-
-    {
-      path: "/Everything",
-      element: <Everything />,
-    },
-
-    {
-      path: "/Men",
-      element: <MenPage />,
-    },
-    {
-      path: "/Woman",
-      element: <WomanPage />,
-    },
-    {
-      path: "/Kids",
-      element: <KidsPage />,
     },
     {
       path: "/product/:id",

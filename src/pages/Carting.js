@@ -19,17 +19,17 @@ function Carting() {
   // Create a new array containing only unique items
   const uniqueItems = Array.from(new Set(cart.map(item => item)))
   return (
-    <div>
+    <section>
       <Navigator2/>
-      <div className="Carting">
-        <div>
+      <section className="Carting">
+        <section>
           <p style={{fontWeight:'bold', fontSize:30}}>Shopping Cart</p>
-        </div>
+        </section>
         <hr />
         
         {uniqueItems.map((item) => (
-          <div className="Cart-item-format" key={item.product.id}>
-            <div style={{
+          <section className="Cart-item-format" key={item.product.id}>
+            <section style={{
               position: "relative",
               width: "30vw",
               height: "45vh",
@@ -65,44 +65,44 @@ function Carting() {
               </section> */}
               {/* Display the total price of unique items */}
               <section>
-              <p style={{fontWeight:'bold'}}>Quantity</p>
+              <p style={{fontWeight:'bold'}}>Total</p>
               <p>R{item.product.price * item.quantity}</p>
               </section>
               <img className="remove-icn" src={remove_icon} onClick={() => removeFromCart(item.product.id)} alt=""/>
-            </div>
+            </section>
             <hr/>
-          </div>
+          </section>
         ))}
         
-        <div className="cart-down">
-          <div className="cart-tot">
+        <section className="cart-down">
+          <section className="cart-tot">
             <h5>Total</h5>
-            <div>
-              <div style={{display:" flex", flexDirection: "column"}} className="total-itm">
+            <section>
+              <section style={{display:" flex", flexDirection: "column"}} className="total-itm">
                 <p2>Subtotal</p2>
                 {/* Calculate the total price based on unique items */}
                 <p2>R{uniqueItems.reduce((total, item) => total + item.product.price * item.quantity, 0)}</p2>
-              </div>
+              </section>
               <hr/>
-              <div className="total-itm">
+              <section className="total-itm">
                 <p2>Delivery</p2>
                 <p2>Free</p2>
-              </div>
+              </section>
               <hr/>
-              <div style={{display:" flex", flexDirection: "column"}} className="total-itm">
+              <section style={{display:" flex", flexDirection: "column"}} className="total-itm">
                 <h8>Total</h8>
                 {/* Calculate the total price based on unique items */}
                 <p2>R{uniqueItems.reduce((total, item) => total + item.product.price * item.quantity, 0)}</p2>
-              </div>
-            </div>
+              </section>
+            </section>
             <Link to="/cart/checkout">
               <button>CHECKOUT</button>
             </Link>
-          </div>
-        </div>
-      </div>
+          </section>
+        </section>
+      </section>
       <Footer/>
-    </div>
+    </section>
   );
 }
 

@@ -18,7 +18,7 @@ function SearchBar() {
   };
 
   return (
-    <div>
+    <section>
       <form onSubmit={handleSearchSubmit} className="search-bar">
         <input
           type="text"
@@ -30,7 +30,7 @@ function SearchBar() {
           <FaSearch />
         </button>
       </form>
-    </div>
+    </section>
   );
 }
 

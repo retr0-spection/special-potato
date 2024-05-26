@@ -55,10 +55,10 @@ function ShowProduct() {
 
   return (
     
-    <div>
+    <section>
       <Navigator2/>
       <Categories/>
-    {product ? <div
+    {product ? <section
       style={{
         display: "flex",
         flexDirection: "row",
@@ -79,7 +79,7 @@ function ShowProduct() {
           height: "100%",
         }}
       >
-        <div
+        <section
           style={{
             position: "relative",
             overflow: "hidden",
@@ -99,48 +99,48 @@ function ShowProduct() {
             src={product.image}
             alt={product.name}
           />
-        </div>
+        </section>
       </section>
 
-      <div className="product-info" style={{ width: "40vw", height: "100vh" }}>
+      <section className="product-info" style={{ width: "40vw", height: "100vh" }}>
         <h1>{product.name}</h1>
 
           <Divider />
        
-        <div className="product-details">
+        <section className="product-details">
             <FormLabel>Sizes</FormLabel>
-          <div className="Sizes" style={{marginLeft:0}}>
-            <div
+          <section className="Sizes" style={{marginLeft:0}}>
+            <section
               className={selectedSize === "xs" ? "selectedSize" : ""}
               onClick={() => setSize("xs")}
             >
               XS
-            </div>
-            <div
+            </section>
+            <section
               className={selectedSize === "s" ? "selectedSize" : ""}
               onClick={() => setSize("s")}
             >
               S
-            </div>
-            <div
+            </section>
+            <section
               className={selectedSize === "m" ? "selectedSize" : ""}
               onClick={() => setSize("m")}
             >
               M
-            </div>
-            <div
+            </section>
+            <section
               className={selectedSize === "l" ? "selectedSize" : ""}
               onClick={() => setSize("l")}
             >
               L
-            </div>
-            <div
+            </section>
+            <section
               className={selectedSize === "xl" ? "selectedSize" : ""}
               onClick={() => setSize("xl")}
             >
               XL
-            </div>
-          </div>
+            </section>
+          </section>
           <Divider />
           <FormLabel>Quantity</FormLabel>
           <section style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
@@ -151,14 +151,14 @@ function ShowProduct() {
           <Divider />
           <FormLabel>Price</FormLabel>
           <p style={{fontSize:20, fontWeight:'bold'}}>R{product.price}</p>
-          <div className="AddCart" style={{padding:0}}>
+          <section className="AddCart" style={{padding:0}}>
             <button disabled={!(quantity)} onClick={handleAddToCart}>Add to Cart</button>
-          </div>
-        </div>
-      </div>
-    </div> : null}
+          </section>
+        </section>
+      </section>
+    </section> : null}
     <Footer/>
-    </div>
+    </section>
   );
 }
 

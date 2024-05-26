@@ -36,7 +36,7 @@ function Stock() {
 
   return (
     <body>
-      <div class="container">
+      <section class="container">
       <nav>
         <a href="/admin">Dashboard</a>
         <a href="/admin/order">Orders</a>
@@ -69,7 +69,7 @@ function Stock() {
           
           </tbody>
         </table>
-      </div>
+      </section>
     </body>
   );
 }

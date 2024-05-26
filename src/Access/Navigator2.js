@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/Navigator.css";
 import useStore from "../zustand/store";
-import { Avatar, Button, Dialog, Popover, Typography } from "@mui/material";
+import { Popover, Typography } from "@mui/material";
 import SearchBar from "../pages/SearchBar";
 import icon1 from "../icons/cart_icon.png";
-import Uni from "../images/Unisex.jpg";
-import Everything from "../pages/Everything";
 
 function Navigator2() {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -29,16 +27,15 @@ function Navigator2() {
   };
 
   return (
-    <div className="Navigator">
-      <Link to="/" style={{textDecorationLine:'none'}}>
-      <div>
-        <h1 className="logo-text" style={{ color: "white" }}>
+    <nav className="Navigator">
+
+      <Link   to="/" style={{textDecorationLine:'none', marginLeft:20}}>
+        <h1  style={{ color: "white" }}>
         IconicThreads
         </h1>
-      </div>
       </Link>
-      <div className="right">
-        <div
+      <section className="right">
+        <section
           style={{ display: "flex", alignItems: "center" }}
           className={`menu ${menuVisible ? "menu-visible" : "menu-hidden"}`}
         >
@@ -55,13 +52,13 @@ function Navigator2() {
               <Avatar />
             </Link>
           ) : null} */}
-         {cartSize ? <div className="Arr">
+         {cartSize ? <section className="Arr">
             <Link to="/cart">
-              <div className="cart-count">{cartSize}</div>
+              <section className="cart-count">{cartSize}</section>
               <img src={icon1} alt="Bjj" />
             </Link>
-          </div> : null}
-        </div>
+          </section> : null}
+        </section>
 
         <Popover
           id={"profile"}
@@ -75,11 +72,11 @@ function Navigator2() {
         >
           <Typography sx={{ p: 2 }}>Hi {profile?.name}</Typography>
         </Popover>
-        {/* <div className="menu-icon" onClick={toggleMenu}>
+        {/* <section className="menu-icon" onClick={toggleMenu}>
           {menuVisible ? <>&times;</> : <>&#9776;</>}
-        </div> */}
-      </div>
-    </div>
+        </section> */}
+      </section>
+    </nav>
   );
 }
 

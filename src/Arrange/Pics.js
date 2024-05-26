@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 
 function Item({product}) {
   return (
-    <div className="Pics">
+    <section className="Pics">
       <Link to={`/product/${product.itemId}`}>
         <img src={product.image} alt="" />
       </Link>
       <p>{product.name}</p>
-      <div className="P_Price">
-        <div className="P_Pricen">R{product.price}</div>
-      </div>
-    </div>
+      <section className="P_Price">
+        <section className="P_Pricen">R{product.price}</section>
+      </section>
+    </section>
   );
 }
 

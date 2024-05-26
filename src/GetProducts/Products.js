@@ -3,18 +3,12 @@ import Navigator2 from "../Access/Navigator2";
 import Footer from "../pages/Footer";
 import "../App.css";
 import "../Styles/Homepage.css";
-import Categories from "../Access/Categories";
-import GetProducts from "./GetProducts";
-import GetProducts2 from "./GetProducts2";
-import GetProducts3 from "./GetProducts3";
-import { useLocation } from "react-router-dom";
 import API from "../api";
 import Section from "../components/products/section";
 import { FormLabel, MenuItem, Select } from "@mui/material";
+import Categories from "../Access/Categories";
 
 function Products() {
-  const location = useLocation();
-  const searchTerm = location.pathname.split("/search/")[1];
   const [sections, setSections] = React.useState([]);
   const [filter, setFilter] = React.useState('all')
 
@@ -51,12 +45,11 @@ function Products() {
         <section>
         <section style={{display:'flex', justifyContent:'flex-end', }}>
             <section style={{padding:0}}>
-            <FormLabel>Gender</FormLabel>
+            <FormLabel>Filter</FormLabel>
             <Select
-              labelId="gender-select-label"
-              id="gender-select"
+              labelId="filter-select-label"
+              id="filter-select"
               value={filter}
-              // label="Age"
               onChange={(e) => setFilter(e.target.value)}
             >
               <MenuItem value={"all"}>All</MenuItem>
